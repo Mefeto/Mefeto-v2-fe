@@ -1,0 +1,33 @@
+{
+  "name": "mefeto-v2",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.11.0",
+    "@emotion/server": "^11.11.0",
+    "@mantine/carousel": "^6.0.13",
+    "@mantine/core": "^6.0.13",
+    "@mantine/ds": "^6.0.13",
+    "@mantine/hooks": "^6.0.13",
+    "@mantine/next": "^6.0.13",
+    "@mantine/prism": "^6.0.13",
+    "@tabler/icons-react": "^2.20.0",
+    "@types/node": "20.2.5",
+    "@types/react": "18.2.7",
+    "@types/react-dom": "18.2.4",
+    "embla-carousel-react": "^8.0.0-rc06",
+    "next": "13.4.4",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "typescript": "5.0.4"
+  },
+  "devDependencies": {
+    "prettier": "^2.8.8"
+  }
+}
