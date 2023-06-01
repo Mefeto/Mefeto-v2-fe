@@ -11,6 +11,7 @@
   "dependencies": {
     "@emotion/react": "^11.11.0",
     "@emotion/server": "^11.11.0",
+    "@giscus/react": "^2.2.8",
     "@mantine/carousel": "^6.0.13",
     "@mantine/core": "^6.0.13",
     "@mantine/ds": "^6.0.13",

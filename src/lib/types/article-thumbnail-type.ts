@@ -4,6 +4,7 @@ export interface ArticleThumbnailType {
 }
 
 export interface ArticleThumbnailContentType {
+  id: number;
   categories: string[];
   imgUrl: string;
   title: string;
