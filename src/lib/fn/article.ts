@@ -1,8 +1,9 @@
 import { articleThumbnail } from "@/lib/const/article-thumbnail";
 import { propositions } from "@/lib/const/proposition";
+import { ArticleThumbnailContentType } from "@/lib/types/article-thumbnail-type";
 
 export const getArticle = (id: number) => {
-  let items = [];
+  let items: ArticleThumbnailContentType[] = [];
   articleThumbnail.forEach((item) => {
     item.contents.forEach((item) => items.push(item));
   });

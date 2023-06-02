@@ -1,4 +1,6 @@
-export const articleThumbnail = [
+import { ArticleThumbnailType } from "@/lib/types/article-thumbnail-type";
+
+export const articleThumbnail: ArticleThumbnailType[] = [
   {
     date: "2023-06-01",
     contents: [

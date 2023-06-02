@@ -20,7 +20,6 @@ import Image from "next/image";
 import { ArticleThumbnailContentType } from "@/lib/types/article-thumbnail-type";
 import { usePathname } from "next/navigation";
 import { notifications } from "@mantine/notifications";
-import { set } from "zod";
 
 export default function ArticleContentHeader({
   article,
