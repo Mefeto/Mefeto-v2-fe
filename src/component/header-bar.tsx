@@ -11,6 +11,7 @@ import {
 import { useDisclosure } from "@mantine/hooks";
 import { IconChevronDown } from "@tabler/icons-react";
 import { MantineLogo } from "@mantine/ds";
+import Link from "next/link";
 
 const useStyles = createStyles((theme) => ({
   inner: {
@@ -116,7 +117,9 @@ export default function HeaderBar({ links }: HeaderSearchProps) {
     <Header height={56} mb={40}>
       <Container>
         <div className={classes.inner}>
-          <MantineLogo size={28} />
+          <Link href={"/"}>
+            <MantineLogo size={28} />
+          </Link>
           <Group spacing={5} className={classes.links}>
             {items}
           </Group>

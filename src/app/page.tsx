@@ -8,20 +8,11 @@ import FooterBar from "@/component/footer-bar";
 
 export default function Home() {
   return (
-    <>
-      <HeaderBar
-        links={[
-          { link: "/", label: "test1" },
-          { link: "/", label: "test2" },
-        ]}
-      />
-      <main>
-        <Container>
-          <MainCarousel />
-          <MainTimeline />
-        </Container>
-      </main>
-      <FooterBar />
-    </>
+    <main>
+      <Container>
+        <MainCarousel />
+        <MainTimeline />
+      </Container>
+    </main>
   );
 }
