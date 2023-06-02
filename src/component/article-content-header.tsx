@@ -28,7 +28,6 @@ export default function ArticleContentHeader({
 }) {
   const { theme } = useStyles();
   const pathname = usePathname();
-  const [copied, setCopied] = useState(false);
   const copyToClipboard = async () => {
     await navigator.clipboard.writeText(`${window.location.origin}${pathname}`);
     //@ts-ignore
@@ -77,7 +76,7 @@ export default function ArticleContentHeader({
           논의 진행중
         </Badge>
         <Text color="dimmed" size={14}>
-          6월 1일에 논의 시작됨 · 댓글 6개
+          6월 1일에 논의 시작됨 · 댓글 1개
         </Text>
         <Group spacing={0}>
           <Tooltip label="좋아요 누르기" withArrow>

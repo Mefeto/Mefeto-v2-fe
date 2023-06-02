@@ -81,7 +81,7 @@ export default function MainTimelineCard({
               alt="image1"
               width={200}
               height={200}
-              style={{ borderRadius: 16 }}
+              style={{ borderRadius: 16, objectFit: "cover" }}
             />
           </Flex>
         </Card.Section>

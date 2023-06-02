@@ -26,19 +26,18 @@ export default function ArticleOpinionSubmit() {
         style={{ flexGrow: 0, flexShrink: 0 }}
       >
         <Group position="apart">
-          <Badge color="orange">12 days left</Badge>
+          <Badge color="orange">12일 남음</Badge>
         </Group>
 
         <Text fz="lg" fw={500} mt="md">
-          5.3 minor release (September 2022)
+          의견 제출함
         </Text>
         <Text fz="sm" c="dimmed" mt={5}>
-          Form context management, Switch, Grid and Indicator components
-          improvements, new hook and 10+ other changes
+          발의안에 대해 관련 의견을 제시해주세요!
         </Text>
 
         <Text c="dimmed" fz="sm" mt="md">
-          Upvote:{" "}
+          의견 제출 현황:{" "}
           <Text
             span
             fw={500}
@@ -46,7 +45,7 @@ export default function ArticleOpinionSubmit() {
               color: theme.colorScheme === "dark" ? theme.white : theme.black,
             })}
           >
-            23/36
+            36명 중 23명
           </Text>
         </Text>
         <Progress

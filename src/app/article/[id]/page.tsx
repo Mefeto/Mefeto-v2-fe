@@ -19,7 +19,7 @@ export default function ArticleIdPage({ params }: { params: { id: number } }) {
         <Divider mb={16} />
         <Grid columns={14} w="100%">
           <Grid.Col span={10}>
-            <ArticleContent />
+            <ArticleContent article={article} />
             <ArticleComment />
           </Grid.Col>
           <Grid.Col span={4}>
