@@ -1,8 +1,11 @@
-export const articleThumbnail = [
+import { ArticleThumbnailType } from "@/lib/types/article-thumbnail-type";
+
+export const articleThumbnail: ArticleThumbnailType[] = [
   {
     date: "2023-06-01",
     contents: [
       {
+        id: 1,
         categories: ["nature"],
         imgUrl:
           "https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80",
@@ -13,6 +16,7 @@ export const articleThumbnail = [
         boundary: 35,
       },
       {
+        id: 2,
         categories: ["beach"],
         imgUrl:
           "https://images.unsplash.com/photo-1559494007-9f5847c49d94?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80",
@@ -23,6 +27,7 @@ export const articleThumbnail = [
         boundary: 35,
       },
       {
+        id: 3,
         categories: ["nature"],
         imgUrl:
           "https://images.unsplash.com/photo-1608481337062-4093bf3ed404?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80",
@@ -38,6 +43,7 @@ export const articleThumbnail = [
     date: "2023-05-31",
     contents: [
       {
+        id: 4,
         categories: ["nature"],
         imgUrl:
           "https://images.unsplash.com/photo-1507272931001-fc06c17e4f43?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80",
@@ -48,6 +54,7 @@ export const articleThumbnail = [
         boundary: 35,
       },
       {
+        id: 5,
         categories: ["tourism"],
         imgUrl:
           "https://images.unsplash.com/photo-1510798831971-661eb04b3739?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80",
@@ -58,6 +65,7 @@ export const articleThumbnail = [
         boundary: 35,
       },
       {
+        id: 6,
         categories: ["nature"],
         imgUrl:
           "https://images.unsplash.com/photo-1582721478779-0ae163c05a60?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80",
