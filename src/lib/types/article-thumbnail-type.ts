@@ -9,6 +9,7 @@ export interface ArticleThumbnailContentType {
   imgUrl: string;
   title: string;
   shortDescription: string;
+  mainContent: string;
   signed: number;
   boundary: number;
 }

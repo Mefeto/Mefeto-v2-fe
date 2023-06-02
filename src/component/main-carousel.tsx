@@ -25,14 +25,14 @@ const useStyles = createStyles((theme) => ({
     width: rem(400),
     fontFamily: `Greycliff CF, ${theme.fontFamily}`,
     fontWeight: 900,
-    color: theme.white,
+    color: "#191f28",
     lineHeight: 1.2,
     fontSize: rem(32),
     marginTop: theme.spacing.xs,
   },
 
   category: {
-    color: theme.white,
+    color: "#191f28",
     opacity: 0.7,
     fontWeight: 700,
     textTransform: "uppercase",
@@ -53,7 +53,7 @@ function Card({ image, title, category }: CardProps) {
       shadow="md"
       p="xl"
       radius="md"
-      sx={{ backgroundImage: `url(${image})` }}
+      sx={{ backgroundImage: `url(${image})`, backdropFilter: "blur(5px)" }}
       className={classes.card}
     >
       <div>
@@ -73,16 +73,14 @@ function Card({ image, title, category }: CardProps) {
 
 const data = [
   {
-    image:
-      "https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80",
-    title: "Best forests to visit in North America",
-    category: "nature",
+    image: "https://mimg.segye.com/content/image/2021/07/30/20210730504510.jpg",
+    title: "전동킥보드의 법적 지위와 안전 문제에 대한 해결 방안 제시",
+    category: "법률 및 규제",
   },
   {
-    image:
-      "https://images.unsplash.com/photo-1559494007-9f5847c49d94?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80",
-    title: "Hawaii beaches review: better than you think",
-    category: "beach",
+    image: "https://platum.kr/wp-content/uploads/2015/04/tenancy-900w.jpg",
+    title: "임대차 3법과 전세 사기: 원인과 해결책 탐색",
+    category: "경제",
   },
   {
     image:
