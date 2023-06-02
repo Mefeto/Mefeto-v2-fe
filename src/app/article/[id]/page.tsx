@@ -11,7 +11,7 @@ import ArticleContentHeader from "@/component/article-content-header";
 
 export default function ArticleIdPage({ params }: { params: { id: number } }) {
   const { height } = useViewportSize();
-  const article = getArticle(Number(params.id));
+  const article = getArticle(Number(params.id)) as ArticleThumbnailContentType;
   return (
     <>
       <Container size="lg" mih={height}>
