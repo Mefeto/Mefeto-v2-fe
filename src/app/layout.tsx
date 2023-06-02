@@ -1,6 +1,7 @@
 "use client";
 import { Inter } from "next/font/google";
-import { Container, MantineProvider } from "@mantine/core";
+import { MantineProvider } from "@mantine/core";
+import { Notifications } from "@mantine/notifications";
 import HeaderBar from "@/component/header-bar";
 import FooterBar from "@/component/footer-bar";
 
@@ -21,6 +22,7 @@ export default function RootLayout({
               { link: "/", label: "test2" },
             ]}
           />
+          <Notifications />
           {children}
           <FooterBar />
         </MantineProvider>
