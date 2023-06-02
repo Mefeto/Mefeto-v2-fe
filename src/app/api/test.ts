@@ -15,6 +15,7 @@ export default async function Sessions(req: NextApiRequest, res: NextApiResponse
 const getTest = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const { rows } = await sql`SELECT * FROM test;`;
+    return res.status(200).json({ rows });
   } catch (err: any) {
     return res.status(500).json({ err });
   }
