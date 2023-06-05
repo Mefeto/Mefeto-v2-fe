@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { sql } from "@vercel/postgres";
 
-export default async function Sessions(req: NextApiRequest, res: NextApiResponse) {
+export default async function Test(req: NextApiRequest, res: NextApiResponse) {
   switch (req.method) {
     case "GET":
       return await getTest(req, res);
