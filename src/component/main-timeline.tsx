@@ -18,7 +18,7 @@ export default function MainTimeline() {
   return (
     <>
       <Text size={28} weight={700} py={16} mt={40}>
-        Timeline
+        타임라인
       </Text>
       <Timeline
         active={-1}

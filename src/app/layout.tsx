@@ -18,8 +18,8 @@ export default function RootLayout({
         <MantineProvider>
           <HeaderBar
             links={[
-              { link: "/", label: "test1" },
-              { link: "/", label: "test2" },
+              { link: "/search", label: "발의안 검색" },
+              { link: "/", label: "토의 리스트" },
             ]}
           />
           <Notifications />
