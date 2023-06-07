@@ -28,7 +28,8 @@ export const articleThumbnail: ArticleThumbnailType[] = [
       {
         id: 2,
         categories: ["경제"],
-        imgUrl: "https://platum.kr/wp-content/uploads/2015/04/tenancy-900w.jpg",
+        imgUrl:
+          "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
         title: "임대차 3법과 전세 사기: 원인과 해결책 탐색",
         shortDescription:
           "임대차 3법이 전세 사기 증가와 관련하여 논의되고 있는 대한민국 주택 시장의 문제로 제기되고 있으며, 이 문제에 대한 해결책과 관련하여 논의가 진행되고 있습니다.",
