@@ -46,7 +46,7 @@ export default function ArticleContentHeader({
       <Anchor component={Link} href={"/"}>
         <Group spacing={8}>
           <IconArrowLeft size={16} />
-          <Text my="md">Back to article list</Text>
+          <Text my="md">아티클 목록</Text>
         </Group>
       </Anchor>
       <Image

@@ -3,6 +3,12 @@ export interface ArticleThumbnailType {
   contents: ArticleThumbnailContentType[];
 }
 
+export interface ArticleRelatedPropositionType {
+  id: string;
+  name: string;
+  tag: string;
+}
+
 export interface ArticleThumbnailContentType {
   id: number;
   categories: string[];
@@ -12,4 +18,5 @@ export interface ArticleThumbnailContentType {
   mainContent: string;
   signed: number;
   boundary: number;
+  relatedPropositions?: ArticleRelatedPropositionType[];
 }

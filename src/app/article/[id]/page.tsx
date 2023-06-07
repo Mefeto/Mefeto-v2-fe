@@ -4,7 +4,7 @@ import { useViewportSize } from "@mantine/hooks";
 import { getArticle } from "@/lib/fn/article";
 import { ArticleThumbnailContentType } from "@/lib/types/article-thumbnail-type";
 import ArticleComment from "@/component/article-comment";
-import ArticleRelatedArticles from "@/component/article-related-articles";
+import ArticleRelatedPropositions from "@/component/article-related-propositions";
 import ArticleOpinionSubmit from "@/component/article-opinion-submit";
 import ArticleContent from "@/component/article-content";
 import ArticleContentHeader from "@/component/article-content-header";
@@ -25,7 +25,9 @@ export default function ArticleIdPage({ params }: { params: { id: number } }) {
           <Grid.Col span={4}>
             <Stack>
               <ArticleOpinionSubmit />
-              <ArticleRelatedArticles />
+              <ArticleRelatedPropositions
+                relatedPropositions={article.relatedPropositions ?? []}
+              />
             </Stack>
           </Grid.Col>
         </Grid>
