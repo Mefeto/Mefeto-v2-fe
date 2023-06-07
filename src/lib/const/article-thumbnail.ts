@@ -5,6 +5,18 @@ export const articleThumbnail: ArticleThumbnailType[] = [
     date: "2023-06-01",
     contents: [
       {
+        id: 0,
+        categories: ["법률 및 규제"],
+        imgUrl:
+          "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80",
+        title: "마약 문제, 법적 처벌을 강화해야 할까?",
+        shortDescription: "",
+        mainContent: "",
+        signed: 12,
+        boundary: 25,
+        relatedPropositions: [],
+      },
+      {
         id: 1,
         categories: ["법률 및 규제"],
         imgUrl:
@@ -24,6 +36,13 @@ export const articleThumbnail: ArticleThumbnailType[] = [
           "따라서 전동킥보드의 법적 지위 명확화와 안전 규제 강화가 필요합니다. 정부는 전동킥보드에 대한 법률을 수정하거나 새로운 규제를 도입하여, 이용자들에게 안전한 이동 환경을 제공하는 것이 중요합니다. 이를 위해서는 전동킥보드에 대한 상세한 법적 규정을 마련하는 것 외에도, 이용자들의 안전을 위해 교육을 강화하는 방안도 고려되어야 합니다.",
         signed: 23,
         boundary: 35,
+        relatedPropositions: [
+          {
+            id: "PRC_M2K3S0T3S2R7P1X6W4X2T4R3A1Y8Z6",
+            name: "기후위기 대응을 위한 탄소중립ㆍ녹색성장 기본법 일부개정법률안",
+            tag: "환경",
+          },
+        ],
       },
       {
         id: 2,
@@ -43,18 +62,38 @@ export const articleThumbnail: ArticleThumbnailType[] = [
           "이러한 문제에 대한 해결책으로, 일부는 임대차 3법이 임대인의 권리만을 보호하는 법의 허점을 보완하기 위한 제도로서, 현 상황을 개선할 수 있다는 주장을 제기하고 있습니다.",
         signed: 23,
         boundary: 35,
+        relatedPropositions: [
+          {
+            id: "PRC_F2E3J0K4J1R2Q1P1N5V5U3V1U6S2A0",
+            name: "주택법 일부개정법률안",
+            tag: "안전",
+          },
+        ],
       },
       {
         id: 3,
-        categories: ["nature"],
+        categories: ["정치"],
         imgUrl:
-          "https://images.unsplash.com/photo-1608481337062-4093bf3ed404?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80",
-        title: "Mountains at night: 12 best locations to enjoy the view",
+          "https://images.unsplash.com/photo-1589578527966-fdac0f44566c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
+        title: "천안함 발언 논란: 진실을 찾아서",
         shortDescription:
-          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
-        mainContent: "",
+          "이래경의 천안함 자폭 발언에 대한 논란이 일어나고 있습니다. 이 발언은 천안함 사건에 대한 오해와 불신을 조장하며, 사건의 진상 규명을 방해할 수 있다는 지적이 있습니다.",
+        mainContent:
+          "최근 이래경의 천안함 자폭 발언에 대한 논란이 일어났습니다. 이 발언은 천안함 사건에 대한 오해와 불신을 조장하며, 사건의 진상 규명을 방해할 수 있다는 지적이 있습니다. 이에 대해 사과와 철저한 진상 조사가 필요하다는 의견이 제기되고 있습니다. 이 이슈는 진실, 안전, 공정이라는 가치와 관련이 있으며, 이들 가치가 현재 충돌하고 있는 상황입니다. 이 문제에 대한 해결책을 찾기 위해, 천안함 사건과 이래경의 발언에 대한 더 깊은 이해와 분석이 필요합니다.",
         signed: 23,
         boundary: 35,
+        relatedPropositions: [
+          {
+            id: "PRC_Z2Y3G0F4E1D7K1J1K2J7H3Q4P8N0O0",
+            name: "직업안정법 일부개정법률안",
+            tag: "법",
+          },
+          {
+            id: "PRC_X2Y3P0W4R2B1J1A7C3P9S4G4P3H7Z7",
+            name: "경영지도사 및 기술지도사에 관한 법률 일부개정법률안",
+            tag: "법",
+          },
+        ],
       },
     ],
   },
@@ -63,39 +102,48 @@ export const articleThumbnail: ArticleThumbnailType[] = [
     contents: [
       {
         id: 4,
-        categories: ["nature"],
+        categories: ["정치"],
         imgUrl:
-          "https://images.unsplash.com/photo-1507272931001-fc06c17e4f43?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80",
-        title: "Aurora in Norway: when to visit for best experience",
+          "https://images.unsplash.com/photo-1604372425350-fdf0bcebb0f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80",
+        title: "한국노총의 경사노위 참여 중단: 노동자의 목소리를 위한 도전",
         shortDescription:
-          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
-        mainContent: "",
+          "한국노총이 경사노위 참여를 중단하였습니다. 이 결정은 노동자의 권리와 이해를 위협할 수 있으며, 노동자 대표의 경사노위 참여를 보장하는 방안이 필요하다는 의견이 제기되고 있습니다.",
+        mainContent:
+          "한국노총이 경사노위 참여를 중단하였습니다. 이 결정은 노동자의 권리와 이해를 위협할 수 있습니다. 한국노총은 대한민국의 대표적인 노동조합으로, 그들의 결정은 노동자의 권리와 이해에 큰 영향을 미칩니다. 그들이 경사노위 참여를 중단하면, 노동자의 목소리가 제대로 반영되지 않을 수 있습니다. 이에 대해 노동자의 권리와 이해를 보호하고, 노동자 대표의 경사노위 참여를 보장하는 방안이 필요하다는 의견이 제기되고 있습니다. 이 이슈는 평등, 공정, 도덕이라는 가치와 관련이 있으며, 이들 가치가 현재 충돌하고 있는 상황입니다. 이 문제에 대한 해결책을 찾기 위해, 한국노총과 경사노위에 대한 더 깊은 이해와 분석이 필요합니다.",
         signed: 23,
         boundary: 35,
+        relatedPropositions: [
+          {
+            id: "PRC_J2Q3P0N4W1U7T1S1A2B6A0Y4X4T4R5",
+            name: "국회미래연구원법 일부개정법률안",
+            tag: "법",
+          },
+        ],
       },
       {
         id: 5,
-        categories: ["tourism"],
+        categories: ["정치"],
         imgUrl:
-          "https://images.unsplash.com/photo-1510798831971-661eb04b3739?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80",
-        title: "Best places to visit this winter",
+          "https://images.unsplash.com/photo-1495725274072-fd5d0b961a9f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1143&q=80",
+        title: "한국노총의 경사노위 대화 불참: 노동자의 목소리를 위한 도전",
         shortDescription:
-          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
-        mainContent: "",
+          "한국노총이 대통령 직속 사회적대화기구인 경제사회노동위원회 참여를 중단하였습니다. 이 결정은 한국노총 금속노련 김준영 사무처장에 대한 경찰의 강경진압에서 비롯되었습니다.",
+        mainContent:
+          "한국노총이 대통령 직속 사회적대화기구인 경제사회노동위원회 참여를 중단하였습니다. 이 결정은 한국노총 금속노련 김준영 사무처장에 대한 경찰의 강경진압에서 비롯되었습니다. 포스코 광양제철소 하청업체 탄압 중단을 요구하며 망루 농성을 벌이던 김 사무처장은 체포 당시 경찰봉으로 머리를 맞았고, 지난 2일 구속되었습니다. 한국노총은 윤석열 정부 심판을 위해 결단이 필요하다는 데에 노조 전 조직이 목소리를 모았다고 밝혔습니다. 이 이슈는 노동자의 권리와 안전을 중요하게 생각하는 가치와 관련이 있으며, 이들 가치가 현재 경제적 안정 및 사회적 대화의 중요성과 충돌하고 있는 상황입니다. 이 문제에 대한 해결책을 찾기 위해, 한국노총과 경사노위에 대한 더 깊은 이해와 분석이 필요합니다.",
         signed: 23,
         boundary: 35,
-      },
-      {
-        id: 6,
-        categories: ["nature"],
-        imgUrl:
-          "https://images.unsplash.com/photo-1582721478779-0ae163c05a60?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80",
-        title: "Active volcanos reviews: travel at your own risk",
-        shortDescription:
-          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
-        mainContent: "",
-        signed: 23,
-        boundary: 35,
+        relatedPropositions: [
+          {
+            id: "PRC_X2W3V0D4B1C7B1A0V1U3T4U6S4B2Z8",
+            tag: "경제",
+            name: "옥외광고물 등의 관리와 옥외광고산업 진흥에 관한 법률 일부개정법률안",
+          },
+          {
+            id: "PRC_G2E3A0Z3Y3W0X1G6E2C4B0K4F9F0E2",
+            tag: "일상",
+            name: "식품 등의 표시ㆍ광고에 관한 법률 일부개정법률안",
+          },
+        ],
       },
     ],
   },

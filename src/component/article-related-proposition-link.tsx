@@ -5,7 +5,7 @@ import { useDisclosure } from "@mantine/hooks";
 import { getProposition } from "@/lib/fn/article";
 import Link from "next/link";
 
-export default function ArticleRelatedArticleLink({
+export default function ArticleRelatedPropositionLink({
   tag,
   label,
   id,
