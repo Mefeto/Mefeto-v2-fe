@@ -7,7 +7,7 @@ export const getArticle = (id: number) => {
   articleThumbnail.forEach((item) => {
     item.contents.forEach((item) => items.push(item));
   });
-  return items.at(id - 1) as ArticleThumbnailContentType;
+  return items.at(id) as ArticleThumbnailContentType;
 };
 
 export const getProposition = (id: string) => {
