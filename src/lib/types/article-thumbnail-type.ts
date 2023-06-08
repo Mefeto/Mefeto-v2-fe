@@ -16,6 +16,7 @@ export interface ArticleThumbnailContentType {
   title: string;
   shortDescription: string;
   mainContent: string;
+  html?: string;
   signed: number;
   boundary: number;
   relatedPropositions?: ArticleRelatedPropositionType[];
