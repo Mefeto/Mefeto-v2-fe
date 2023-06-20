@@ -8,6 +8,7 @@ import ArticleRelatedPropositions from "@/component/article-related-propositions
 import ArticleOpinionSubmit from "@/component/article-opinion-submit";
 import ArticleContent from "@/component/article-content";
 import ArticleContentHeader from "@/component/article-content-header";
+import ArticleRelatedPeople from "@/component/article-related-people";
 
 export default function ArticleIdPage({ params }: { params: { id: number } }) {
   const { height } = useViewportSize();
@@ -24,6 +25,7 @@ export default function ArticleIdPage({ params }: { params: { id: number } }) {
           </Grid.Col>
           <Grid.Col span={4}>
             <Stack>
+              <ArticleRelatedPeople />
               <ArticleOpinionSubmit />
               <ArticleRelatedPropositions
                 relatedPropositions={article.relatedPropositions ?? []}
