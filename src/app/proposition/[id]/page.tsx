@@ -28,8 +28,6 @@ export default function PropositionIdPage({
     .filter((item) => item.BILL_ID === params.id)
     .at(0);
 
-  console.log(params);
-
   const breadcrumbs = [
     { title: "검색", href: "/search" },
     { title: "의안 2121422호", href: `/proposition/${params.id}` },
@@ -53,7 +51,7 @@ export default function PropositionIdPage({
         </Text>
 
         <Stack>
-          <Text color={"dimmed"}>
+          <Text color="dimmed">
             제안일 : {cntProposition?.PROPOSE_DT} | 제안자 :{" "}
             {cntProposition?.PROPOSER}
           </Text>
