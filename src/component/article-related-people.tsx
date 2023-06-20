@@ -1,7 +1,6 @@
 import { Avatar, Card, Group, Paper, Stack, Text } from "@mantine/core";
 import React from "react";
 import { Carousel } from "@mantine/carousel";
-import theme from "prism-react-renderer/themes/*";
 
 export default function ArticleRelatedPeople() {
   const relatedPeopleSlides = testRelatedPeopleInfo.map((p, i) => {
@@ -58,11 +57,11 @@ export default function ArticleRelatedPeople() {
           slideSize="80%"
           slideGap={24}
           loop
-          styles={(theme) => ({
+          styles={{
             slide: {
               padding: 8,
             },
-          })}
+          }}
         >
           {relatedPeopleSlides}
         </Carousel>
