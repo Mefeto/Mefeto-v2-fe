@@ -1,7 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { sql } from "@vercel/postgres";
 
-export default async function Test(req: NextApiRequest, res: NextApiResponse) {
+const handler = async function Test(req: NextApiRequest, res: NextApiResponse) {
+  console.log(req.method);
   switch (req.method) {
     case "GET":
       return await getTest(req, res);
@@ -10,7 +11,7 @@ export default async function Test(req: NextApiRequest, res: NextApiResponse) {
     default:
       return res.status(400).end(`Method Not Allowed`);
   }
-}
+};
 
 const getTest = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
@@ -30,3 +31,5 @@ const addTest = async (req: NextApiRequest, res: NextApiResponse) => {
     return res.status(500).json({ err });
   }
 };
+
+export default handler;
