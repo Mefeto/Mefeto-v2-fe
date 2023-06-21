@@ -7,15 +7,19 @@ import {
   Group,
   Input,
   Modal,
+  Paper,
   Progress,
   Text,
   Textarea,
 } from "@mantine/core";
 import { IconAt } from "@tabler/icons-react";
 import { useDisclosure } from "@mantine/hooks";
+import ArticleContentImprovedLegislation from "@/component/article-content-improved-legislation";
 
 export default function ArticleOpinionSubmit() {
   const [opened, { open, close }] = useDisclosure(false);
+  const [imprvOpened, { open: imprvOpen, close: imprvClose }] =
+    useDisclosure(false);
   return (
     <>
       <Card
@@ -62,30 +66,51 @@ export default function ArticleOpinionSubmit() {
         />
 
         <Button mt="md" fullWidth radius="md" onClick={open}>
-          Upvote
+          제안하기
+        </Button>
+        <Button
+          mt="md"
+          fullWidth
+          radius="md"
+          onClick={imprvOpen}
+          variant="light"
+        >
+          의견이 반영된 개정안 구경하기
         </Button>
       </Card>
-      <Modal opened={opened} onClose={close} title="Sign for opinion" centered>
+      <Modal
+        opened={opened}
+        onClose={close}
+        title="의견 제안하기"
+        styles={{ title: { fontWeight: 600 }, inner: { padding: 0 } }}
+        centered
+      >
         <Group grow mb="md">
-          <Input.Wrapper id="first-name" withAsterisk label="First Name">
-            <Input id="first-name" placeholder="Your first name" />
+          <Input.Wrapper id="성" withAsterisk label="성">
+            <Input id="성" placeholder="성" />
           </Input.Wrapper>
-          <Input.Wrapper id="last-name" withAsterisk label="Last Name">
-            <Input id="last-name" placeholder="Your last name" />
+          <Input.Wrapper id="이름" withAsterisk label="이름">
+            <Input id="이름" placeholder="이름" />
           </Input.Wrapper>
         </Group>
-        <Input.Wrapper id="email" withAsterisk label="Email" mb="md">
-          <Input icon={<IconAt size={16} />} placeholder="Your email" />
+        <Input.Wrapper id="이메일" withAsterisk label="이메일" mb="md">
+          <Input icon={<IconAt size={16} />} placeholder="이메일" />
         </Input.Wrapper>
-        <Textarea
-          placeholder="Your opinion"
-          label="Your opinion"
-          withAsterisk
-        />
-        <Checkbox label="I agree to sell my privacy" my="md" />
+        <Textarea placeholder="의견을 작성해주세요" label="의견" withAsterisk />
+        <Checkbox label="개인정보 활용에 동의합니다" my="md" />
         <Group position="right">
-          <Button>Sign a opinion</Button>
+          <Button>의견 제출하기</Button>
         </Group>
+      </Modal>
+      <Modal
+        opened={imprvOpened}
+        onClose={imprvClose}
+        title="Mefeto의 개정안"
+        styles={{ title: { fontWeight: 600 }, inner: { padding: 0 } }}
+        centered
+        size="xl"
+      >
+        <ArticleContentImprovedLegislation />
       </Modal>
     </>
   );

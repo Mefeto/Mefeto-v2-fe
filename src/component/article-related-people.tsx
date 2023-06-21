@@ -1,14 +1,26 @@
-import { Avatar, Card, Group, Paper, Stack, Text } from "@mantine/core";
+import {
+  Avatar,
+  Card,
+  Group,
+  Paper,
+  Stack,
+  Text,
+  UnstyledButton,
+} from "@mantine/core";
 import React from "react";
 import { Carousel } from "@mantine/carousel";
+import Link from "next/link";
 
 export default function ArticleRelatedPeople() {
   const relatedPeopleSlides = testRelatedPeopleInfo.map((p, i) => {
     return (
       <Carousel.Slide key={i}>
         <Paper
+          component={Link}
+          shadow="xs"
           px={16}
           h="100%"
+          w="100%"
           sx={(theme) => ({
             borderRadius: 8,
             display: "flex",
@@ -17,7 +29,13 @@ export default function ArticleRelatedPeople() {
             alignItems: "center",
             backgroundColor: theme.colors[p.color][0],
             border: `1px solid ${theme.colors[p.color][3]}`,
+            "&:hover": {
+              backgroundColor: theme.colors[p.color][1],
+              border: `1px solid ${theme.colors[p.color][4]}`,
+              transitionDuration: "1000",
+            },
           })}
+          href={"/"}
         >
           <Avatar src={p.imgUrl} size="md" radius="xl" />
           <Stack mx="auto" justify="space-around" spacing={0}>
