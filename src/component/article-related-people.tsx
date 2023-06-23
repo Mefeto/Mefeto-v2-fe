@@ -1,12 +1,4 @@
-import {
-  Avatar,
-  Card,
-  Group,
-  Paper,
-  Stack,
-  Text,
-  UnstyledButton,
-} from "@mantine/core";
+import { Avatar, Card, Group, Paper, Stack, Text } from "@mantine/core";
 import React from "react";
 import { Carousel } from "@mantine/carousel";
 import Link from "next/link";
@@ -35,7 +27,7 @@ export default function ArticleRelatedPeople() {
               transitionDuration: "1000",
             },
           })}
-          href={"/"}
+          href={`/mp/${p.id}`}
         >
           <Avatar src={p.imgUrl} size="md" radius="xl" />
           <Stack mx="auto" justify="space-around" spacing={0}>
@@ -95,6 +87,7 @@ const testRelatedPeopleInfo = [
     party: "국민의 힘",
     color: "red",
     committee: "법제사법위원회",
+    id: "LH97552Q",
   },
   {
     imgUrl: "https://www.assembly.go.kr/photo/9770719.jpg",
@@ -102,6 +95,7 @@ const testRelatedPeopleInfo = [
     party: "국민의 힘",
     color: "red",
     committee: "법제사법위원회",
+    id: "LH97552Q",
   },
   {
     imgUrl: "https://www.assembly.go.kr/photo/9770719.jpg",
@@ -109,6 +103,7 @@ const testRelatedPeopleInfo = [
     party: "국민의 힘",
     color: "red",
     committee: "법제사법위원회",
+    id: "LH97552Q",
   },
   {
     imgUrl: "https://www.assembly.go.kr/photo/9770719.jpg",
@@ -116,5 +111,6 @@ const testRelatedPeopleInfo = [
     party: "국민의 힘",
     color: "red",
     committee: "법제사법위원회",
+    id: "LH97552Q",
   },
 ];
