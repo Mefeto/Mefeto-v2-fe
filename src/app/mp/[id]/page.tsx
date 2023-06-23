@@ -16,21 +16,16 @@ import { useViewportSize } from "@mantine/hooks";
 import { articleThumbnail } from "@/lib/const/article-thumbnail";
 import MpInterestedArticlesCard from "@/component/mp-interested-articles-card";
 import {
+  IconBrandFacebook,
+  IconBrandFacebookFilled,
   IconBrandInstagram,
   IconBrandTwitter,
   IconBrandYoutube,
 } from "@tabler/icons-react";
 
-const social = [IconBrandTwitter, IconBrandYoutube, IconBrandInstagram];
-
 export default function Page({ params }: { params: { id: string } }) {
   const { height } = useViewportSize();
   const snsInfo = getSNSInfo(params.id);
-  const icons = social.map((Icon, index) => (
-    <ActionIcon key={index} size="sm" variant="transparent">
-      <Icon size="1.2rem" stroke={1.5} />
-    </ActionIcon>
-  ));
   return (
     <Container mih={height}>
       <Paper p="md" radius="md">
@@ -53,7 +48,32 @@ export default function Page({ params }: { params: { id: string } }) {
             <Text fz="sm" color="dimmed">
               법제사법위원회
             </Text>
-            <Group my={4}>{icons}</Group>
+            <Group my={4}>
+              <ActionIcon
+                component="a"
+                size="md"
+                variant="light"
+                color="#0099FF"
+                p={4}
+                target="_blank"
+                rel="noopener noreferrer"
+                href={snsInfo?.T_URL as string}
+              >
+                <IconBrandTwitter size="1.4rem" stroke={1.5} />
+              </ActionIcon>
+              <ActionIcon
+                component="a"
+                size="md"
+                variant="light"
+                color="#4599FF"
+                p={4}
+                target="_blank"
+                rel="noopener noreferrer"
+                href={snsInfo?.F_URL as string}
+              >
+                <IconBrandFacebook size="1.4rem" stroke={1.5} />
+              </ActionIcon>
+            </Group>
           </Stack>
         </Flex>
       </Paper>
