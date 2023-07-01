@@ -1,5 +1,6 @@
 "use client";
 import { Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 import { MantineProvider } from "@mantine/core";
 import { Notifications } from "@mantine/notifications";
 import HeaderBar from "@/component/header-bar";
@@ -25,6 +26,7 @@ export default function RootLayout({
           <Notifications />
           {children}
           <FooterBar />
+          <Analytics />
         </MantineProvider>
       </body>
     </html>
