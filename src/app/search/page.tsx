@@ -1,9 +1,9 @@
 "use client";
 import { Container, Flex } from "@mantine/core";
 import { useInputState } from "@mantine/hooks";
-import SearchBar from "@/component/search-bar";
-import SearchFilter from "@/component/search-filter";
-import PropositionList from "@/component/proposition-list";
+import SearchBar from "@/component/search-propostion/search-bar";
+import SearchFilter from "@/component/search-propostion/search-filter";
+import PropositionList from "@/component/propostion/proposition-list";
 import { useState } from "react";
 import { committees } from "@/lib/const/committees";
 

@@ -3,12 +3,12 @@ import { Container, Grid, Divider, Stack } from "@mantine/core";
 import { useViewportSize } from "@mantine/hooks";
 import { getArticle } from "@/lib/fn/article";
 import { ArticleThumbnailContentType } from "@/lib/types/article-thumbnail-type";
-import ArticleComment from "@/component/article-comment";
-import ArticleRelatedPropositions from "@/component/article-related-propositions";
-import ArticleOpinionSubmit from "@/component/article-opinion-submit";
-import ArticleContent from "@/component/article-content";
-import ArticleContentHeader from "@/component/article-content-header";
-import ArticleRelatedPeople from "@/component/article-related-people";
+import ArticleComment from "@/component/article/article-comment";
+import ArticleRelatedPropositions from "@/component/article/article-related-propositions";
+import ArticleOpinionSubmit from "@/component/article/article-opinion-submit";
+import ArticleContent from "@/component/article/article-content";
+import ArticleContentHeader from "@/component/article/article-content-header";
+import ArticleRelatedPeople from "@/component/article/article-related-people";
 
 export default function ArticleIdPage({ params }: { params: { id: number } }) {
   const { height } = useViewportSize();

@@ -1,5 +1,5 @@
 import { Card, Stack, Text } from "@mantine/core";
-import ArticleRelatedPropositionLink from "@/component/article-related-proposition-link";
+import ArticleRelatedPropositionLink from "@/component/article/article-related-proposition-link";
 import { ArticleRelatedPropositionType } from "@/lib/types/article-thumbnail-type";
 
 export default function ArticleRelatedPropositions({

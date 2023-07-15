@@ -1,16 +1,16 @@
 "use client";
 
-import HeaderBar from "@/component/header-bar";
-import MainCarousel from "@/component/main-carousel";
-import { Box, Container } from "@mantine/core";
-import MainTimeline from "@/component/main-timeline";
-import FooterBar from "@/component/footer-bar";
+import MainCarousel from "@/component/main/main-carousel";
+import { Container } from "@mantine/core";
+import MainTimeline from "@/component/main/main-timeline";
 
 export default function Home() {
   return (
     <main>
       <Container>
+        {/* 최근 이슈 목록 */}
         <MainCarousel />
+        {/* 시간 흐름별 이슈 목록 */}
         <MainTimeline />
       </Container>
     </main>

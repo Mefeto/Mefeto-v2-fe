@@ -1,5 +1,5 @@
 import { Timeline, Text } from "@mantine/core";
-import MainTimelineCard from "@/component/main-timeline-card";
+import MainTimelineCard from "@/component/main/main-timeline-card";
 import { articleThumbnail } from "@/lib/const/article-thumbnail";
 import { ArticleThumbnailType } from "@/lib/types/article-thumbnail-type";
 
@@ -17,9 +17,11 @@ export default function MainTimeline() {
   );
   return (
     <>
+      {/* 타임라인 시간대 */}
       <Text size={28} weight={700} py={16} mt={40}>
         타임라인
       </Text>
+      {/* 타임라인별 글 목록 */}
       <Timeline
         active={-1}
         lineWidth={2}

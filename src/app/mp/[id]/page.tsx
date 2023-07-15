@@ -14,7 +14,7 @@ import {
 } from "@mantine/core";
 import { useViewportSize } from "@mantine/hooks";
 import { articleThumbnail } from "@/lib/const/article-thumbnail";
-import MpInterestedArticlesCard from "@/component/mp-interested-articles-card";
+import CongressmanInterestedArticlesCard from "@/component/congressman/congressman-interested-articles-card";
 import {
   IconBrandFacebook,
   IconBrandFacebookFilled,
@@ -90,7 +90,9 @@ export default function Page({ params }: { params: { id: string } }) {
           </Text>
           {articleThumbnail.map((item) =>
             item.contents.map((a) => {
-              return <MpInterestedArticlesCard key={a.title} article={a} />;
+              return (
+                <CongressmanInterestedArticlesCard key={a.title} article={a} />
+              );
             })
           )}
         </Tabs.Panel>

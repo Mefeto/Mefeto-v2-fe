@@ -13,9 +13,9 @@ import {
   Stack,
   Text,
 } from "@mantine/core";
-import PropositionContentDictionary from "@/component/proposition-content-dictionary";
-import PropositionContentAi from "@/component/proposition-content-ai";
-import PropositionContentOriginal from "@/component/proposition-content-original";
+import PropositionContentDictionary from "@/component/propostion/proposition-content-dictionary";
+import PropositionContentAi from "@/component/propostion/proposition-content-ai";
+import PropositionContentOriginal from "@/component/propostion/proposition-content-original";
 import Link from "next/link";
 
 export default function PropositionIdPage({
@@ -29,7 +29,7 @@ export default function PropositionIdPage({
     .at(0);
 
   const breadcrumbs = [
-    { title: "검색", href: "/search" },
+    { title: "검색", href: "/search-propostion" },
     { title: "의안 2121422호", href: `/proposition/${params.id}` },
   ].map((item, index) => (
     <Anchor component={Link} href={item.href} key={index}>
