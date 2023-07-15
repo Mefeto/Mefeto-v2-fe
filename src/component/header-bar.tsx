@@ -11,7 +11,13 @@ import {
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import Link from "next/link";
-import { SignInButton, SignOutButton, UserButton } from "@clerk/nextjs";
+import {
+  SignInButton,
+  SignOutButton,
+  UserButton,
+  useUser,
+} from "@clerk/nextjs";
+import { IconPencilPlus } from "@tabler/icons-react";
 
 interface HeaderSearchProps {
   links: {
@@ -24,6 +30,7 @@ interface HeaderSearchProps {
 export default function HeaderBar({ links }: HeaderSearchProps) {
   const [opened, { toggle }] = useDisclosure(false);
   const { classes } = useStyles();
+  const { isSignedIn } = useUser();
 
   const items = links.map((link) => {
     return (
@@ -42,17 +49,30 @@ export default function HeaderBar({ links }: HeaderSearchProps) {
               🏛️ Mefeto
             </Text>
           </Link>
-          <Group spacing={5} className={classes.links}>
-            <>{items}</>
-          </Group>
           <Group>
-            {/*<Button component={SignInButton} variant="default">*/}
-            {/*  로그인*/}
-            {/*</Button>*/}
-            {/*<Button component={SignOutButton}>로그아웃</Button>*/}
-            {/*<SignInButton />*/}
-            {/*<SignOutButton />*/}
-            <UserButton afterSignOutUrl="/" />
+            <Group spacing={5} className={classes.links}>
+              <>{items}</>
+            </Group>
+            <Group>
+              {isSignedIn ? (
+                <>
+                  <Button
+                    size="sm"
+                    radius="md"
+                    fz="xs"
+                    variant="outline"
+                    rightIcon={<IconPencilPlus size={20} />}
+                  >
+                    새 글 작성하기
+                  </Button>
+                  <UserButton afterSignOutUrl="/" />
+                </>
+              ) : (
+                <Button component={SignInButton} variant="default">
+                  로그인
+                </Button>
+              )}
+            </Group>
           </Group>
           <Burger
             opened={opened}
