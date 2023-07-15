@@ -1,4 +1,4 @@
-// "use client";
+"use client";
 import {
   createStyles,
   Header,
@@ -11,7 +11,7 @@ import {
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import Link from "next/link";
-import { UserButton } from "@clerk/nextjs";
+import { SignInButton, SignOutButton, UserButton } from "@clerk/nextjs";
 
 interface HeaderSearchProps {
   links: {
@@ -45,8 +45,15 @@ export default function HeaderBar({ links }: HeaderSearchProps) {
           <Group spacing={5} className={classes.links}>
             <>{items}</>
           </Group>
-          <Button variant="default">로그인</Button>
-          {/*<UserButton afterSignOutUrl="/" />*/}
+          <Group>
+            {/*<Button component={SignInButton} variant="default">*/}
+            {/*  로그인*/}
+            {/*</Button>*/}
+            {/*<Button component={SignOutButton}>로그아웃</Button>*/}
+            {/*<SignInButton />*/}
+            {/*<SignOutButton />*/}
+            <UserButton afterSignOutUrl="/" />
+          </Group>
           <Burger
             opened={opened}
             onClick={toggle}
