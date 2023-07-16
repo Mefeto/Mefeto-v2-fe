@@ -14,7 +14,7 @@ import {
 } from "@mantine/core";
 import { IconAt } from "@tabler/icons-react";
 import { useDisclosure } from "@mantine/hooks";
-import ArticleContentImprovedLegislation from "@/component/article-content-improved-legislation";
+import ArticleContentImprovedLegislation from "@/component/article/article-content-improved-legislation";
 
 export default function ArticleOpinionSubmit() {
   const [opened, { open, close }] = useDisclosure(false);

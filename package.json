@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@clerk/nextjs": "^4.21.15",
     "@emotion/react": "^11.11.0",
     "@emotion/server": "^11.11.0",
     "@giscus/react": "^2.2.8",
@@ -26,7 +27,7 @@
     "@vercel/analytics": "^1.0.1",
     "@vercel/postgres": "^0.3.0",
     "embla-carousel-react": "^8.0.0-rc06",
-    "next": "13.4.4",
+    "next": "^13.4.10",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "typescript": "5.0.4"

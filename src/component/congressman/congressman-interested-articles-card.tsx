@@ -1,20 +1,10 @@
 "use client";
-import {
-  ActionIcon,
-  Card,
-  createStyles,
-  Flex,
-  Group,
-  Progress,
-  Stack,
-  Text,
-} from "@mantine/core";
-import { IconBookmark, IconHeart, IconShare } from "@tabler/icons-react";
+import { Card, createStyles, Flex, Group, Stack, Text } from "@mantine/core";
 import Image from "next/image";
 import { ArticleThumbnailContentType } from "@/lib/types/article-thumbnail-type";
 import Link from "next/link";
 
-export default function MpInterestedArticlesCard({
+export default function CongressmanInterestedArticlesCard({
   article,
 }: {
   article: ArticleThumbnailContentType;

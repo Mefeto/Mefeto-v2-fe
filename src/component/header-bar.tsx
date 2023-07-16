@@ -1,23 +1,94 @@
+"use client";
 import {
   createStyles,
   Header,
-  Menu,
   Group,
-  Center,
   Burger,
   Container,
   rem,
   Text,
+  Button,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import { IconChevronDown } from "@tabler/icons-react";
-import { MantineLogo } from "@mantine/ds";
 import Link from "next/link";
-import Image from "next/image";
+import {
+  SignInButton,
+  SignOutButton,
+  UserButton,
+  useUser,
+} from "@clerk/nextjs";
+import { IconPencilPlus } from "@tabler/icons-react";
+
+interface HeaderSearchProps {
+  links: {
+    link: string;
+    label: string;
+    links?: { link: string; label: string }[];
+  }[];
+}
+
+export default function HeaderBar({ links }: HeaderSearchProps) {
+  const [opened, { toggle }] = useDisclosure(false);
+  const { classes } = useStyles();
+  const { isSignedIn } = useUser();
+
+  const items = links.map((link) => {
+    return (
+      <Link key={link.label} href={link.link} className={classes.link}>
+        {link.label}
+      </Link>
+    );
+  });
+
+  return (
+    <Header height={80} mb={40}>
+      <Container>
+        <div className={classes.inner}>
+          <Link href={"/"} style={{ textDecoration: "none", color: "black" }}>
+            <Text fw={700} size={24}>
+              🏛️ Mefeto
+            </Text>
+          </Link>
+          <Group>
+            <Group spacing={5} className={classes.links}>
+              <>{items}</>
+            </Group>
+            <Group>
+              {isSignedIn ? (
+                <>
+                  <Button
+                    size="sm"
+                    radius="md"
+                    fz="xs"
+                    variant="outline"
+                    rightIcon={<IconPencilPlus size={20} />}
+                  >
+                    새 글 작성하기
+                  </Button>
+                  <UserButton afterSignOutUrl="/" />
+                </>
+              ) : (
+                <Button component={SignInButton} variant="default">
+                  로그인
+                </Button>
+              )}
+            </Group>
+          </Group>
+          <Burger
+            opened={opened}
+            onClick={toggle}
+            className={classes.burger}
+            size="sm"
+          />
+        </div>
+      </Container>
+    </Header>
+  );
+}
 
 const useStyles = createStyles((theme) => ({
   inner: {
-    height: rem(56),
+    height: rem(80),
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
@@ -37,7 +108,7 @@ const useStyles = createStyles((theme) => ({
 
   link: {
     display: "block",
-    lineHeight: 1,
+    lineHeight: 1.6,
     padding: `${rem(8)} ${rem(12)}`,
     borderRadius: theme.radius.sm,
     textDecoration: "none",
@@ -52,7 +123,7 @@ const useStyles = createStyles((theme) => ({
       backgroundColor:
         theme.colorScheme === "dark"
           ? theme.colors.dark[6]
-          : theme.colors.gray[0],
+          : theme.colors.gray[1],
     },
   },
 
@@ -60,47 +131,3 @@ const useStyles = createStyles((theme) => ({
     marginRight: rem(5),
   },
 }));
-
-interface HeaderSearchProps {
-  links: {
-    link: string;
-    label: string;
-    links?: { link: string; label: string }[];
-  }[];
-}
-
-export default function HeaderBar({ links }: HeaderSearchProps) {
-  const [opened, { toggle }] = useDisclosure(false);
-  const { classes } = useStyles();
-
-  const items = links.map((link) => {
-    return (
-      <Link key={link.label} href={link.link} className={classes.link}>
-        {link.label}
-      </Link>
-    );
-  });
-
-  return (
-    <Header height={56} mb={40}>
-      <Container>
-        <div className={classes.inner}>
-          <Link href={"/"} style={{ textDecoration: "none", color: "black" }}>
-            <Text fw={700} size={24}>
-              🏛️ Mefeto
-            </Text>
-          </Link>
-          <Group spacing={5} className={classes.links}>
-            {items}
-          </Group>
-          <Burger
-            opened={opened}
-            onClick={toggle}
-            className={classes.burger}
-            size="sm"
-          />
-        </div>
-      </Container>
-    </Header>
-  );
-}
