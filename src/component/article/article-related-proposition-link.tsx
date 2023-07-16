@@ -67,7 +67,7 @@ export default function ArticleRelatedPropositionLink({
           </Button>
           <Button
             component={Link}
-            href={`proposition/${proposition?.BILL_ID}`}
+            href={`/proposition/${proposition?.BILL_ID}`}
             fullWidth
             mt={40}
             variant="light"
