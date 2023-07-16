@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { Badge, Drawer, NavLink, Stack, Text, Button } from "@mantine/core";
 import { IconChevronRight } from "@tabler/icons-react";
