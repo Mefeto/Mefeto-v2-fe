@@ -37,7 +37,10 @@ export default function ArticleRelatedPropositionLink({
         onClose={close}
         title="관련된 발의안"
         styles={(theme) => ({
-          title: { color: theme.colors.gray[6], fontSize: theme.fontSizes.sm },
+          title: {
+            color: theme.colors.gray[6],
+            fontSize: theme.fontSizes.sm,
+          },
         })}
       >
         <Stack p="sm">
