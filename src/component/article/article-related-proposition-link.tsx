@@ -17,7 +17,7 @@ export default function ArticleRelatedPropositionLink({
   const [opened, { open, close }] = useDisclosure(false);
   const proposition = getProposition(id);
   return (
-    <div>
+    <div id="drawer">
       <NavLink
         p={4}
         sx={{ borderRadius: 8 }}
