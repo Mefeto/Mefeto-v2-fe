@@ -15,3 +15,15 @@ export async function GET(req: NextRequest) {
   `;
   return NextResponse.json(res.rows);
 }
+
+export async function POST(req: NextRequest) {
+  const { title, thumbnail_url, categories, content } = await req.json();
+  const res = await sql`
+    INSERT INTO articles
+      (title, thumbnail_url, categories, boundary, content)
+    VALUES
+      (${title}, ${thumbnail_url}, ${categories}, ${35}, ${content})
+    RETURNING id, title, thumbnail_url, categories, boundary, created_at
+  `;
+  return NextResponse.json(res.rows[0]);
+}
