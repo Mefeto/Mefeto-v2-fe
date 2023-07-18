@@ -2,7 +2,7 @@ Project mefeto {
   database_type: 'PostgreSQL'
 }
 
-Table articles {
+Table articles as A {
   id int [pk, increment]
   title varchar [not null]
   thumbnail_url varchar [not null]
@@ -10,6 +10,7 @@ Table articles {
   categories varchar[] [not null]
   content text [not null, note: 'HTML content']
   boundary int [default: 35]
+  author_id varchar [not null]
 
   created_at timestamp [not null, default: `now()`]
 }
