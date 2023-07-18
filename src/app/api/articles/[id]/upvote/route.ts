@@ -1,6 +1,8 @@
 import { auth } from "@clerk/nextjs";
 import { sql } from "@vercel/postgres";
 import { NextRequest, NextResponse } from "next/server";
+import { zx } from "zodix";
+import { z } from "zod";
 
 export async function POST(
   req: NextRequest,
@@ -10,7 +12,11 @@ export async function POST(
   if (!userId) {
     return new Response("Unauthorized", { status: 401 });
   }
-  const { id } = params;
+  const result = zx.parseParamsSafe(params, { id: z.coerce.number() });
+  if (!result.success) {
+    return NextResponse.json(result.error, { status: 400 });
+  }
+  const { id } = result.data;
 
   const articleCount = await sql`
     SELECT COUNT(*)::int FROM articles WHERE id = ${id}
@@ -39,7 +45,11 @@ export async function DELETE(
   if (!userId) {
     return new Response("Unauthorized", { status: 401 });
   }
-  const { id } = params;
+  const result = zx.parseParamsSafe(params, { id: z.coerce.number() });
+  if (!result.success) {
+    return NextResponse.json(result.error, { status: 400 });
+  }
+  const { id } = result.data;
 
   const articleCount = await sql`
     SELECT COUNT(*)::int FROM articles WHERE id = ${id}
