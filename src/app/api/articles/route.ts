@@ -10,9 +10,9 @@ export async function GET(req: NextRequest) {
     SELECT
       id, title, thumbnail_url, categories, boundary, created_at
     FROM articles
+    ORDER BY created_at DESC
     LIMIT ${limit}
     OFFSET ${offset}
-    ORDER BY created_at DESC
   `;
   return NextResponse.json(res.rows);
 }
