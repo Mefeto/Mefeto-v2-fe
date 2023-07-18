@@ -11,6 +11,7 @@ export async function GET(req: NextRequest) {
     FROM articles
     LIMIT ${limit}
     OFFSET ${offset}
+    ORDER BY created_at DESC
   `;
   return NextResponse.json(res.rows);
 }
