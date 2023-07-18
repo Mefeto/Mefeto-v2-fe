@@ -25,12 +25,29 @@ export async function POST(req: NextRequest) {
     return new Response("Unauthorized", { status: 401 });
   }
 
-  const { title, thumbnail_url, categories, content } = await req.json();
+  const result = z
+    .object({
+      title: z.string().min(1).max(255),
+      thumbnail_url: z.string().url(),
+      categories: z.array(z.string().min(1).max(255)),
+      content: z.string().min(1),
+    })
+    .safeParse(req.json());
+
+  if (!result.success) {
+    return NextResponse.json(result.error, { status: 400 });
+  }
+
+  const { title, thumbnail_url, categories, content } = result.data;
   const res = await sql`
     INSERT INTO articles
-      (title, thumbnail_url, categories, boundary, content, author_id)
+      (title, thumbnail_url,
+        categories,
+        boundary, content, author_id)
     VALUES
-      (${title}, ${thumbnail_url}, ${categories}, ${35}, ${content}, ${userId})
+      (${title}, ${thumbnail_url},
+        {${categories.map((v) => `"${v}"`).join()}},
+        ${35}, ${content}, ${userId})
     RETURNING id, title, thumbnail_url, categories, boundary, created_at
   `;
   return NextResponse.json(res.rows[0]);
