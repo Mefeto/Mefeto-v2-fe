@@ -14,3 +14,9 @@ Table articles as A {
 
   created_at timestamp [not null, default: `now()`]
 }
+
+Table article_upvotes {
+  article_id int [pk, not null, ref: > A.id]
+  user_id varchar [pk, not null]
+  created_at timestamp [not null, default: `now()`]
+}
