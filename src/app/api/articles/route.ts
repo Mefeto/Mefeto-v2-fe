@@ -2,12 +2,20 @@ import { NextResponse, NextRequest } from "next/server";
 import { sql } from "@vercel/postgres";
 import { auth } from "@clerk/nextjs";
 import { getArticles } from "@/lib/fn/article";
+import { z } from "zod";
+import { zx } from "zodix";
 
 export async function GET(req: NextRequest) {
-  const { searchParams } = new URL(req.url);
-  const limit = Number(searchParams.get("limit")) || 10;
-  const offset = Number(searchParams.get("offset")) || 0;
+  const results = zx.parseQuerySafe(req, {
+    limit: z.optional(z.coerce.number().min(0).max(50)).default(10),
+    offset: z.optional(z.coerce.number().min(0)).default(0),
+  });
 
+  if (!results.success) {
+    return NextResponse.json(results.error, { status: 400 });
+  }
+
+  const { limit, offset } = results.data;
   return NextResponse.json(await getArticles(limit, offset));
 }
 
