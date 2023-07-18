@@ -1,20 +1,14 @@
 import { NextResponse, NextRequest } from "next/server";
 import { sql } from "@vercel/postgres";
 import { auth } from "@clerk/nextjs";
+import { getArticles } from "@/lib/fn/article";
 
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
-  const limit = searchParams.get("limit") || 10;
-  const offset = searchParams.get("offset") || 0;
-  const res = await sql`
-    SELECT
-      id, title, thumbnail_url, categories, boundary, created_at
-    FROM articles
-    ORDER BY created_at DESC
-    LIMIT ${limit}
-    OFFSET ${offset}
-  `;
-  return NextResponse.json(res.rows);
+  const limit = Number(searchParams.get("limit")) || 10;
+  const offset = Number(searchParams.get("offset")) || 0;
+
+  return NextResponse.json(await getArticles(limit, offset));
 }
 
 export async function POST(req: NextRequest) {

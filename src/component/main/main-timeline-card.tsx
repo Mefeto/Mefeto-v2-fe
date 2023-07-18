@@ -48,7 +48,7 @@ export default function MainTimelineCard({
                     {article.title}
                   </Text>
                   <Text size="sm" color="dimmed">
-                    {article.shortDescription}
+                    {article.short_description}
                   </Text>
                 </Stack>
               </Stack>
@@ -77,7 +77,7 @@ export default function MainTimelineCard({
               </Group>
             </Stack>
             <Image
-              src={article.imgUrl}
+              src={article.thumbnail_url}
               alt="image1"
               width={200}
               height={200}

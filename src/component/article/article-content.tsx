@@ -8,9 +8,9 @@ export default function ArticleContent({
 }) {
   return (
     <Paper radius="md" p="md" withBorder style={{ flexGrow: 1, flexShrink: 1 }}>
-      {article.html ? (
+      {article.content ? (
         <TypographyStylesProvider>
-          <div dangerouslySetInnerHTML={{ __html: article.html }}></div>
+          <div dangerouslySetInnerHTML={{ __html: article.content }}></div>
         </TypographyStylesProvider>
       ) : (
         <Text py="md" sx={{ whiteSpace: "pre-wrap" }}>
