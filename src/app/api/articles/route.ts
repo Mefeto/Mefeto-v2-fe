@@ -6,9 +6,11 @@ export async function GET(req: NextRequest) {
   const id = urlParams.get("id");
   let res;
   if (id) {
-    res = await sql`SELECT * FROM articles WHERE id = ${id};`;
+    res =
+      await sql`SELECT id, title, thumbnail_url, categories, boundary, created_at FROM articles WHERE id = ${id};`;
   } else {
-    res = await sql`SELECT * FROM articles;`;
+    res =
+      await sql`SELECT id, title, thumbnail_url, categories, boundary, created_at FROM articles;`;
   }
   return NextResponse.json(res.rows);
 }
