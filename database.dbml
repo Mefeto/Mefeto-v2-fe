@@ -20,3 +20,17 @@ Table article_upvotes {
   user_id varchar [pk, not null]
   created_at timestamp [not null, default: `now()`]
 }
+
+Table article_comments {
+  id int [pk, increment]
+  article_id int [not null, ref: > A.id]
+  user_id varchar [not null]
+  content text [not null]
+  created_at timestamp [not null, default: `now()`]
+}
+
+Table article_comment_upvotes {
+  comment_id int [pk, not null, ref: > article_comments.id]
+  user_id varchar [pk, not null]
+  created_at timestamp [not null, default: `now()`]
+}
