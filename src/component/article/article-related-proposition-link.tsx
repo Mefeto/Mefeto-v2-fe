@@ -36,6 +36,7 @@ export default function ArticleRelatedPropositionLink({
         opened={opened}
         onClose={close}
         title="관련된 발의안"
+        transitionProps={{ duration: 200, transition: "pop" }}
         styles={(theme) => ({
           title: {
             color: theme.colors.gray[6],
