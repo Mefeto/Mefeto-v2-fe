@@ -14,26 +14,24 @@ export default function ArticleIdPage({ params }: { params: { id: number } }) {
   const { height } = useViewportSize();
   const article = getArticle(Number(params.id)) as ArticleThumbnailContentType;
   return (
-    <>
-      <Container size="lg" mih={height}>
-        <ArticleContentHeader article={article} />
-        <Divider mb={16} />
-        <Grid columns={14} w="100%">
-          <Grid.Col span={10}>
-            <ArticleContent article={article} />
-            <ArticleComment />
-          </Grid.Col>
-          <Grid.Col span={4}>
-            <Stack>
-              <ArticleRelatedPeople />
-              <ArticleOpinionSubmit />
-              <ArticleRelatedPropositions
-                relatedPropositions={article.relatedPropositions ?? []}
-              />
-            </Stack>
-          </Grid.Col>
-        </Grid>
-      </Container>
-    </>
+    <Container size="lg" mih={height}>
+      <ArticleContentHeader article={article} />
+      <Divider mb={16} />
+      <Grid columns={14} w="100%">
+        <Grid.Col span={10}>
+          <ArticleContent article={article} />
+          <ArticleComment />
+        </Grid.Col>
+        <Grid.Col span={4}>
+          <Stack>
+            <ArticleRelatedPeople />
+            <ArticleOpinionSubmit />
+            <ArticleRelatedPropositions
+              relatedPropositions={article.relatedPropositions ?? []}
+            />
+          </Stack>
+        </Grid.Col>
+      </Grid>
+    </Container>
   );
 }

@@ -1,4 +1,4 @@
-import React from "react";
+"use client";
 import { Badge, Drawer, NavLink, Stack, Text, Button } from "@mantine/core";
 import { IconChevronRight } from "@tabler/icons-react";
 import { useDisclosure } from "@mantine/hooks";
@@ -17,7 +17,7 @@ export default function ArticleRelatedPropositionLink({
   const [opened, { open, close }] = useDisclosure(false);
   const proposition = getProposition(id);
   return (
-    <>
+    <div id="drawer">
       <NavLink
         p={4}
         sx={{ borderRadius: 8 }}
@@ -36,8 +36,12 @@ export default function ArticleRelatedPropositionLink({
         opened={opened}
         onClose={close}
         title="관련된 발의안"
+        transitionProps={{ duration: 200, transition: "slide-left" }}
         styles={(theme) => ({
-          title: { color: theme.colors.gray[6], fontSize: theme.fontSizes.sm },
+          title: {
+            color: theme.colors.gray[6],
+            fontSize: theme.fontSizes.sm,
+          },
         })}
       >
         <Stack p="sm">
@@ -67,7 +71,7 @@ export default function ArticleRelatedPropositionLink({
           </Button>
           <Button
             component={Link}
-            href={`proposition/${proposition?.BILL_ID}`}
+            href={`/proposition/${proposition?.BILL_ID}`}
             fullWidth
             mt={40}
             variant="light"
@@ -76,6 +80,6 @@ export default function ArticleRelatedPropositionLink({
           </Button>
         </Stack>
       </Drawer>
-    </>
+    </div>
   );
 }
