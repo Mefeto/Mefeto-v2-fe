@@ -10,16 +10,7 @@ export default function MainLayout({
 }) {
   return (
     <>
-      <MantineProvider>
-        <HeaderBar
-          links={[
-            { link: "/", label: "토의 리스트" },
-            { link: "/search", label: "발의안 검색" },
-          ]}
-        />
-        {children}
-        <FooterBar />
-      </MantineProvider>
+      <MantineProvider>{children}</MantineProvider>
     </>
   );
 }

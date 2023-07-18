@@ -1,6 +1,6 @@
-import { Inter } from "next/font/google";
+import RootStyleRegistry from "@/app/emotion";
 import { ClerkProvider } from "@clerk/nextjs";
-import MainLayout from "@/component/main-layout";
+import { Inter } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,7 +13,7 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body className={inter.className} style={{ margin: 0 }}>
-          <MainLayout children={children} />
+          <RootStyleRegistry>{children}</RootStyleRegistry>
         </body>
       </html>
     </ClerkProvider>
