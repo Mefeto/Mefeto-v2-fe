@@ -4,14 +4,13 @@ MEFETO에 필요한 AI 기능들
 
 ## 사용 예시
 ### 관련법 검색
-
-  https://github.com/ParkJumyung/test/assets/126857540/dde04d7e-0399-4216-834b-853aa466e16b
+  https://github.com/Mefeto/Mefeto-v2-fe/assets/126857540/e6ec3a82-062a-4e35-8b35-f39c4e014301
 
 키워드와 관련된 모든 대한민국 법조문들을 검색하는 서비스입니다. 국가법령정보 공동활용 서비스를 통해 제공되는 다양한 API들을 MEFETO AI Solutions에 포함된 API Chain을 이용해 연결하여 구현되었습니다. 
 
 ### 특수 데이터 기반 Chat GPT
 
-https://github.com/ParkJumyung/test/assets/126857540/b71702c8-67c1-4bf4-ac47-6d4ae834fad0
+  https://github.com/Mefeto/Mefeto-v2-fe/assets/126857540/97b29292-59b7-4c46-9702-80deb37025b7
 
 관련법 검색 서비스와 GPT를 연결하여 대한민국 법에 기반하여 답변할 수 있는 Chat GPT입니다. GPT의 function calling을 이용하여 외부 API를 통해 얻은 데이터에 기반한 답변을 할 수 있도록 MEFETO AI Solutions에 포함된 useChatGPT를 이용하여 구현되었습니다. 
 
