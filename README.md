@@ -162,7 +162,7 @@ Open AI 의 GPT API중 createChatCompletion 을 이용하여 ChatGPT와 같은 �
 ## 개발 중인 기능들
 
 ### Youtube 자막 fetch
-API_CONGIGs에 youtube 자막 fetching api를 추가하고 있습니다. 공식 youtube api가 아니라 인증 없이 간편하게 사용할 수 있는 community api를 사용하려고 합니다. 
+API_CONFIGs에 youtube 자막 fetching api를 추가하고 있습니다. 공식 youtube api가 아니라 인증 없이 간편하게 사용할 수 있는 community api를 사용하려고 합니다. 
 
 ### IRS(Information Retrieval System)
 현재는 GPT에 Domain Specific Knowledge를 제공하기 위해서 function call을 통해 API로 검색한 내용 중 앞 부분을 임의로 선택해서 제공하고 있습니다. 이는 GPT의 Context Window에 제한이 있어서 검색 결과의 모든 법 조문을 전달할 수 없기 때문입니다. 따라서 가장 관련있고 GPT가 응답하기 위해 필요한 정보만을 모아서 GPT에게 제공하기 위한 방법이 필요합니다. 이를 IRS(Information Retrieval System)이라 합니다. Neural Search, Semantic Search 등 다양하게 불리는 듯 합니다. Transformer가 사용하는 Attention Mechanism에서 영감을 받아 고안하였습니다. ~~이미 IRS를 구현한 다른 시스템에서 기본적으로 사용하는 개념인 듯 합니다~~ 
