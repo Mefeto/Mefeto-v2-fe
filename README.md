@@ -188,7 +188,7 @@ IRS를 구현하기 위한 방법으로 다음을 생각하고 있습니다.
 학습된 `Transformation Matrix`를 `Query Matrix`와 행렬 곱 하여 얻은 `Query Matrix(Transformed)`를 검색에 사용합니다.
 Tensorflow.js를 사용할 예정입니다.  
 
-![3](https://github.com/ParkJumyung/test/assets/126857540/8b1386fc-8cba-468b-96c0-e24b249311f0)
+  ![3](https://github.com/ParkJumyung/test/assets/126857540/8b1386fc-8cba-468b-96c0-e24b249311f0)
    
 4. Cosine Similarity Search
    `Query Matrix(Transformed)`에 있는 `Query Vector`들과 `Key Matrix`에 있는 `Embedding Vector`의 거리를 계산하여 주어진 `Query Vector`와 가까운 `Embedding Vector`를 추려냅니다. Embedding Vector Space에서 가까운 Vector는 유사한 의미의 텍스트임을 의미하므로 이를 통해서 관련있는 Data만 모을 수 있습니다.
