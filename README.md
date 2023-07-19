@@ -92,7 +92,7 @@ Open API를 간편하게 사용할 수 있습니다.
    일일이 입력하는 과정이 피곤할 수 있지만 적절한 prompt와 ChatGPT를 이용해서 빠르게 작성할 수 있고, 이미 정의되어 있는 API들은 이 방법을 이용해 작성되어 있습니다. 이에 사용할 수 있는 prompt를 보다 정제하고 여기에 추가하거나 API를 설명하는 웹페이지 주소만 넣으면 자동으로 configure하도록 자동화 해보겠습니다. 
 
 ### useChatGPT
-Open AI 의 GPT API중 createChatCompletion 을 이용하여 ChatGPT와 같은 시스템을 간편하게 개발할 수 있는 Custon Hooks입니다. 
+Open AI 의 GPT API중 createChatCompletion 을 이용하여 ChatGPT와 같은 시스템을 간편하게 개발할 수 있는 Custom Hooks입니다. 
 1. useChatGPT 사용하기
    ```javascript
    import useChatGPT from 'useChatGPT 위치";
