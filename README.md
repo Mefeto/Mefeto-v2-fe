@@ -174,18 +174,19 @@ IRS를 구현하기 위한 방법으로 다음을 생각하고 있습니다.
    모든 `Embedding Vector`를 모아 2d Matrix를 구성할 수 있습니다. 이를 `Key Matrix`라 하겠습니다.  이는 `id`의 순서를 따라야 합니다. 
    ~~ReactJS Frontend 만 공부해서 아직 Database 어떻게 사용하는 것인지는 모르지만 지금 공부중입니다아~~
    PineCone을 사용할 예정입니다.
+   
    <img src = "https://github.com/ParkJumyung/test/assets/126857540/217b4432-8754-4d7b-a693-e62bdbfcf1f8" width="50%">
    
-2. Query Vector 생성
-   GPT가 function Calling을 통해 원하는 정보를 묻는 전달하면 해당 Query를 Embed 하여 `Query Vector`를 생성합니다. GPT가 한번에 여러 질문을 할 수 있으므로 `Query Vector`는 여러개 일 수 있으며, 이는 하나의 2d Matrix로 종합됩니다.  이를 `Query Matrix`라 하겠습니다.
+3. Query Vector 생성
+   GPT가 function Calling을 통해 원하는 정보를 묻는 전달하면 해당 Query를 Embed 하여 `Query Vector`를 생성합니다. GPT가 한번에 여러 질문을 할 수 있으므로 `Query Vector`는 여러개 일 수 있으며, 이는 하나의 2d Matrix로 종합됩니다.  이를 `Query Matrix`라 하겠습니다.  
 
    ![2](https://github.com/ParkJumyung/test/assets/126857540/3164d0bb-a77b-408a-a680-5d9cad0fec60)
    
-3. Query -> Hypothetical Key Transform Matrix Training
+4. Query -> Hypothetical Key Transform Matrix Training
   이 단계는 Embedding 의 Quality에 따라 생략될 수도 있습니다. Query는 질문의 형태이고, Database는 사실의 형태이기 때문에 단순히 Query를 Embedding 했을 때 가까운 Vector를 Search하면 Query에 대한 대답을 찾는다기 보다는 Query와 유사한 의미의 텍스트들, 즉 비슷한 질문들을 조회할 수 있습니다. 이를 해결하기 위해 Embedding한 Query Vector를 그에 대한 대답이 있는 Vector의 영역으로 조정할 필요가 있습니다.
 이는 Vector Space에서 Vector를 원하는 영역으로 이동시킬 수 있는 `Transformation Matrix`를 학습시켜 해결할 수 있습니다. 질문 형태의 Query와 연관된 Data의 Vector 쌍을 구성하여 학습 데이터로 하고, Embedding Vector Space의 차원을 가진 `Transformation Matrix`를 단순한 Neural Network를 이용하여 학습시킵니다.
 학습된 `Transformation Matrix`를 `Query Matrix`와 행렬 곱 하여 얻은 `Query Matrix(Transformed)`를 검색에 사용합니다.
-Tensorflow.js를 사용할 예정입니다.
+Tensorflow.js를 사용할 예정입니다.  
 
 ![3](https://github.com/ParkJumyung/test/assets/126857540/8b1386fc-8cba-468b-96c0-e24b249311f0)
    
@@ -193,14 +194,14 @@ Tensorflow.js를 사용할 예정입니다.
    `Query Matrix(Transformed)`에 있는 `Query Vector`들과 `Key Matrix`에 있는 `Embedding Vector`의 거리를 계산하여 주어진 `Query Vector`와 가까운 `Embedding Vector`를 추려냅니다. Embedding Vector Space에서 가까운 Vector는 유사한 의미의 텍스트임을 의미하므로 이를 통해서 관련있는 Data만 모을 수 있습니다.
    보통 거리로서 Cosine Similarity가 가장 많이 사용됩니다. 이는 두 Vector가 이루는 각의 cosine값을 의미하는데, 비슷한 의미는 비슷한 방향의 벡터이기 때문에 많이 사용됩니다. 또한 Open AI가 제공하는 Embedding Model은 모두 길이 1로 Normalized되어 있어 단순히 두 Vector의 Dot Product로 계산할 수 있고, 각각의 Dot Product는 행렬 곱으로 Batch Process 될 수 있기 때문에 매우 게산 효율적입니다.  
    따라서 `Key Matrix`와 `Query Matrix(Transformed)`의 전치를 행렬 곱하여 `Score Matrix`를 얻습니다. `Score Matrix`는 각 Key와 Query의 거리를 나타냅니다.
-   Tensorflow.js를 사용할 예정입니다.
+   Tensorflow.js를 사용할 예정입니다.  
    
    ![4](https://github.com/ParkJumyung/test/assets/126857540/3891197b-ad9c-4805-ae00-ddffd47acb89)
    
 5. 관련있는 정보 선택 및 종합
    `Score Matrix`를 이용해서 각 Query에 대해 관련있는 Value만을 모아 종합하여 GPT에게 효율적이고 압축적인 데이터를 전달할 수 있습니다.
    `Score Matrix`에서 `Threshold`이상인 요소들은 1로, 나머지는 0으로 변환하여 `Retrieval Matrix`를 계산합니다. `Retrieval Matrix`는 각 Query에 대하여 각 Data를 사용할 것이면 1, 아니면 0을 포함합니다. `Retrieval Matrix`의 각 열을 `Logical OR`하여 얻을 수 있는 `Retrieval Vector`는 각 Data를 조회해야 할 지 말아야 할 지 1과 0으로 압축적으로 표현합니다. `Retrieval Vector`와 Database의 `Value Matrix`를 Dot Product(+는 String Concatenation이라 하면) 필요한 Data만 모은 `Result` String을 얻을 수 있습니다. GPT에게 보내기 전 Context Window를 넘지 않는 지 확인하고 GPT에게 보내면 검색이 완료됩니다.
-   Tensorflow.js를 사용할 예정입니다.
+   Tensorflow.js를 사용할 예정입니다.  
 
    ![5](https://github.com/ParkJumyung/test/assets/126857540/fae60053-def9-4ef8-b48c-5049a90adc93)
 
