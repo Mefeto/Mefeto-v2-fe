@@ -1,0 +1,107 @@
+.Title {
+    text-align: center;
+    padding: 50px 0 50px 0;
+    display: flex;
+    justify-content: center;
+    .InputContent {
+        margin-right: 10px;
+        background-color: rgb(177, 241, 195);
+    }
+}
+
+.SearchBar {
+    display: flex;
+    flex-direction: row;
+    background-color: blue;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 0 3px;
+    &:hover{
+        box-shadow: 0 0 5px;
+    }
+}
+
+
+.SearchInput {
+    height: 40px;
+    line-height: 40px;
+    border: none;
+    border-radius: 20px 0 0 20px;
+    display: flex;
+    flex: auto;
+    padding: 0 0 0 20px;
+    outline: none;
+}
+
+.SearchButton {
+    border: none;
+    border-radius: 0 20px 20px 0;
+    height: 40px;
+    width: 70px;
+    line-height: 40px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    outline: none;
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+.Error {
+    display: flex;
+    justify-content: center;
+    margin: 80px 0 0 0;
+    padding: 20px 0 20px 0;
+    background-color: rgb(255, 156, 156);
+}
+
+.Loading {
+    display: flex;
+    justify-content: center;
+    margin: 100px 0 100px 0;
+}
+
+.SearchInfo {
+    padding: 10px;
+    font-size: 12px;
+    display: flex;
+    justify-content: right;
+}
+
+.NoResults {
+    display: flex;
+    justify-content: center;
+}
+
+.SearchResult {
+    flex: auto;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.ResultItem{
+    margin: 02px 0 10px 0;
+    border-radius: 10px;
+    box-shadow: 0 0 3px;
+    .LawName{
+        padding: 10px;
+        border-radius: 10px 10px 0 0;
+        background-color: rgb(191, 221, 255);
+    }
+    .LawContentContainer{
+        padding-bottom: 10px;
+    }
+    .LawContent {
+        padding-left: 10px;
+        margin: 7px 0 7px 0;
+        font-size: 14px;
+        &:hover{
+            background-color: rgb(241, 241, 241);
+        }
+    }
+
+    &:hover{
+        box-shadow: 0 0 5px;
+    }
+}
