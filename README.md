@@ -187,7 +187,7 @@ response = {
 }
 ```
 `&join=false`을 붙였을 때는 
-```
+```javascript
 response = {
   title: "영상 제목",
   description: "더보기 란에 써있는 정보",
