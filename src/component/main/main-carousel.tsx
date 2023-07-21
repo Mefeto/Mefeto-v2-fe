@@ -21,7 +21,7 @@ export default function MainCarousel() {
       return (
         <Carousel.Slide key={content.title}>
           <Card
-            image={content.imgUrl}
+            image={content.thumbnail_url}
             title={content.title}
             category={content.categories.join(", ")}
             id={content.id}

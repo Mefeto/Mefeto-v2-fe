@@ -12,11 +12,10 @@ export interface ArticleRelatedPropositionType {
 export interface ArticleThumbnailContentType {
   id: number;
   categories: string[];
-  imgUrl: string;
+  thumbnail_url: string;
   title: string;
-  shortDescription: string;
-  mainContent: string;
-  html?: string;
+  short_description: string;
+  content: string;
   signed: number;
   boundary: number;
   relatedPropositions?: ArticleRelatedPropositionType[];

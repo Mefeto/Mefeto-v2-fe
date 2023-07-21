@@ -50,7 +50,7 @@ export default function ArticleContentHeader({
         </Group>
       </Anchor>
       <Image
-        src={article.imgUrl}
+        src={article.thumbnail_url}
         alt={article.title}
         width={700}
         height={300}

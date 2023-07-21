@@ -7,13 +7,12 @@ export const articleThumbnail: ArticleThumbnailType[] = [
       {
         id: 0,
         categories: ["법률 및 규제"],
-        imgUrl:
+        thumbnail_url:
           "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80",
         title: "마약 문제, 법적 처벌을 강화해야 할까?",
-        shortDescription:
+        short_description:
           "마약 문제가 증가하고 있어서 대한민국에서는 법적 처벌 강화를 요구하는 의견과 예방 교육과 사회적 지원의 중요성을 강조하는 의견이 나뉘고 있습니다. 이 문제를 해결하기 위해서는 법적 처벌뿐만 아니라 예방 교육과 사회적 지원, 국민들의 인식 개선이 필요합니다.",
-        mainContent: "",
-        html: `<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>메페토 콘텐츠 작성</title><style>
+        content: `<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>메페토 콘텐츠 작성</title><style>
 /* cspell:disable-file */
 /* webkit printing magic: print all background colors */
 html {
@@ -696,12 +695,12 @@ blockquote {
       {
         id: 1,
         categories: ["법률 및 규제"],
-        imgUrl:
+        thumbnail_url:
           "https://mimg.segye.com/content/image/2021/07/30/20210730504510.jpg",
         title: "전동킥보드의 법적 지위와 안전 문제에 대한 해결 방안 제시",
-        shortDescription:
+        short_description:
           "전동킥보드는 인기를 얻고 있지만, 법적 지위와 안전 문제가 부각되고 있어 정부는 법률 수정과 안전 규제 강화를 통해 이용자들에게 안전한 이동 환경을 제공해야 합니다.",
-        mainContent:
+        content:
           "최근 몇 년 동안 전동킥보드는 도시 이동 수단으로서 급속도로 인기를 얻고 있습니다. 그러나 이러한 발전에도 불구하고, 전동킥보드의 법적 지위와 안전 문제가 심각하게 부각되고 있습니다.\n" +
           "\n" +
           "전동킥보드는 기존 교통 수단에 비해 편리함을 제공하며, 환경 친화적이라는 가치를 중요시하며 이동 수단의 다양성을 증가시키는 동시에, 그 안전성에 대한 우려가 점점 커지고 있습니다.\n" +
@@ -725,12 +724,12 @@ blockquote {
       {
         id: 2,
         categories: ["경제"],
-        imgUrl:
+        thumbnail_url:
           "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
         title: "임대차 3법과 전세 사기: 원인과 해결책 탐색",
-        shortDescription:
+        short_description:
           "임대차 3법이 전세 사기 증가와 관련하여 논의되고 있는 대한민국 주택 시장의 문제로 제기되고 있으며, 이 문제에 대한 해결책과 관련하여 논의가 진행되고 있습니다.",
-        mainContent:
+        content:
           "대한민국 주택 시장에서 발생한 여러 문제 중 하나로, 임대차 3법이 전세 사기의 원인이라는 주장이 제기되고 있습니다. 이 문제는 국내 주택 시장의 복잡성을 반영하는 동시에, 시장의 다양한 참가자들에게 각기 다른 도전과 기회를 제공하며, 그 해결 방안에 대해 깊이 있는 논의가 요구됩니다.\n" +
           "\n" +
           "임대차 3법은 임대인의 권리를 보호하려는 노력이지만, 일부 주장에 따르면 이로 인해 전세 사기가 증가하였다고 합니다. 더불어, '빌라왕'이라 불리는 일부 사업자들은 이명박 시기에 도입된 '임대사업자 제도'와 박근혜 시기의 파격적인 세제 혜택에 힘입어 부상하였다는 주장이 있습니다.\n" +
@@ -751,12 +750,12 @@ blockquote {
       {
         id: 3,
         categories: ["정치"],
-        imgUrl:
+        thumbnail_url:
           "https://images.unsplash.com/photo-1589578527966-fdac0f44566c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
         title: "천안함 발언 논란: 진실을 찾아서",
-        shortDescription:
+        short_description:
           "이래경의 천안함 자폭 발언에 대한 논란이 일어나고 있습니다. 이 발언은 천안함 사건에 대한 오해와 불신을 조장하며, 사건의 진상 규명을 방해할 수 있다는 지적이 있습니다.",
-        mainContent:
+        content:
           "최근 이래경의 천안함 자폭 발언에 대한 논란이 일어났습니다. 이 발언은 천안함 사건에 대한 오해와 불신을 조장하며, 사건의 진상 규명을 방해할 수 있다는 지적이 있습니다. 이에 대해 사과와 철저한 진상 조사가 필요하다는 의견이 제기되고 있습니다. 이 이슈는 진실, 안전, 공정이라는 가치와 관련이 있으며, 이들 가치가 현재 충돌하고 있는 상황입니다. 이 문제에 대한 해결책을 찾기 위해, 천안함 사건과 이래경의 발언에 대한 더 깊은 이해와 분석이 필요합니다.",
         signed: 23,
         boundary: 35,
@@ -781,12 +780,12 @@ blockquote {
       {
         id: 4,
         categories: ["정치"],
-        imgUrl:
+        thumbnail_url:
           "https://images.unsplash.com/photo-1604372425350-fdf0bcebb0f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80",
         title: "한국노총의 경사노위 참여 중단: 노동자의 목소리를 위한 도전",
-        shortDescription:
+        short_description:
           "한국노총이 경사노위 참여를 중단하였습니다. 이 결정은 노동자의 권리와 이해를 위협할 수 있으며, 노동자 대표의 경사노위 참여를 보장하는 방안이 필요하다는 의견이 제기되고 있습니다.",
-        mainContent:
+        content:
           "한국노총이 경사노위 참여를 중단하였습니다. 이 결정은 노동자의 권리와 이해를 위협할 수 있습니다. 한국노총은 대한민국의 대표적인 노동조합으로, 그들의 결정은 노동자의 권리와 이해에 큰 영향을 미칩니다. 그들이 경사노위 참여를 중단하면, 노동자의 목소리가 제대로 반영되지 않을 수 있습니다. 이에 대해 노동자의 권리와 이해를 보호하고, 노동자 대표의 경사노위 참여를 보장하는 방안이 필요하다는 의견이 제기되고 있습니다. 이 이슈는 평등, 공정, 도덕이라는 가치와 관련이 있으며, 이들 가치가 현재 충돌하고 있는 상황입니다. 이 문제에 대한 해결책을 찾기 위해, 한국노총과 경사노위에 대한 더 깊은 이해와 분석이 필요합니다.",
         signed: 23,
         boundary: 35,
@@ -801,12 +800,12 @@ blockquote {
       {
         id: 5,
         categories: ["정치"],
-        imgUrl:
+        thumbnail_url:
           "https://images.unsplash.com/photo-1495725274072-fd5d0b961a9f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1143&q=80",
         title: "한국노총의 경사노위 대화 불참: 노동자의 목소리를 위한 도전",
-        shortDescription:
+        short_description:
           "한국노총이 대통령 직속 사회적대화기구인 경제사회노동위원회 참여를 중단하였습니다. 이 결정은 한국노총 금속노련 김준영 사무처장에 대한 경찰의 강경진압에서 비롯되었습니다.",
-        mainContent:
+        content:
           "한국노총이 대통령 직속 사회적대화기구인 경제사회노동위원회 참여를 중단하였습니다. 이 결정은 한국노총 금속노련 김준영 사무처장에 대한 경찰의 강경진압에서 비롯되었습니다. 포스코 광양제철소 하청업체 탄압 중단을 요구하며 망루 농성을 벌이던 김 사무처장은 체포 당시 경찰봉으로 머리를 맞았고, 지난 2일 구속되었습니다. 한국노총은 윤석열 정부 심판을 위해 결단이 필요하다는 데에 노조 전 조직이 목소리를 모았다고 밝혔습니다. 이 이슈는 노동자의 권리와 안전을 중요하게 생각하는 가치와 관련이 있으며, 이들 가치가 현재 경제적 안정 및 사회적 대화의 중요성과 충돌하고 있는 상황입니다. 이 문제에 대한 해결책을 찾기 위해, 한국노총과 경사노위에 대한 더 깊은 이해와 분석이 필요합니다.",
         signed: 23,
         boundary: 35,

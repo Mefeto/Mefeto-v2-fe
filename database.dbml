@@ -1,0 +1,36 @@
+Project mefeto {
+  database_type: 'PostgreSQL'
+}
+
+Table articles as A {
+  id int [pk, increment]
+  title varchar [not null]
+  thumbnail_url varchar [not null]
+  short_description text [not null]
+  categories varchar[] [not null]
+  content text [not null, note: 'HTML content']
+  boundary int [default: 35]
+  author_id varchar [not null]
+
+  created_at timestamp [not null, default: `now()`]
+}
+
+Table article_upvotes {
+  article_id int [pk, not null, ref: > A.id]
+  user_id varchar [pk, not null]
+  created_at timestamp [not null, default: `now()`]
+}
+
+Table article_comments {
+  id int [pk, increment]
+  article_id int [not null, ref: > A.id]
+  user_id varchar [not null]
+  content text [not null]
+  created_at timestamp [not null, default: `now()`]
+}
+
+Table article_comment_upvotes {
+  comment_id int [pk, not null, ref: > article_comments.id]
+  user_id varchar [pk, not null]
+  created_at timestamp [not null, default: `now()`]
+}
