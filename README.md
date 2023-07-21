@@ -1,6 +1,10 @@
 # MEFETO AI Solutions
-MEFETO에 필요한 AI 기능들 
-박주명 이 개발 중
+박주명 이 개발 중인 MEFETO에 필요한 AI 기능들 
+
+## 변경사항!
+Next JS 공부하고 Vercel에 대해 알아가다 보니 정말 좋은 것 같아요... mefeto-ai-solutions 폴더에 넣어 두었던 ReactJS 만으로 쓰인 아래의 모든 기능들을 NextJS 로 다시 바꾸어 쓰려고 합니다.  
+그리고 Vercel AI에 제가 한 것과 거의 동일한 SDK를 이미 제공하고 있더라구요... Vercel AI를 이용해 더 간결하고 기능적이게 다시 구현하고 있습니다.  
+
 
 ## 사용 예시
 ### 관련법 검색
@@ -163,6 +167,40 @@ Open AI 의 GPT API중 createChatCompletion 을 이용하여 ChatGPT와 같은 �
 
 ### Youtube 자막 fetch
 API_CONFIGs에 youtube 자막 fetching api를 추가하고 있습니다. 공식 youtube api가 아니라 인증 없이 간편하게 사용할 수 있는 community api를 사용하려고 합니다. 
+
+[Update!] 개발 완료  
+API Routes로 npm package youtube-caption-extractor를 이용해서 해당 youtube video의 videoID를 넣으면 제목, 더보기정보, 자막스크립트 를 추출할 수 있는 api입니다. Next JS를 공부하고 처음으로 만들어본 것입니다. Review하고 틀리거나 이상하게 쓴 부분 있으면 알려주세요.  
+
+**요청하기**
+```javascript
+const videoID = "youtube 동영상 ID(https://www.youtube.com/watch?v=[여기 있는 거))"
+const response = await fetch(`../api/youtubeInfo/?videoID=${videoID}`).then(res => res.json());
+```
+api 요청 주소 뒤에 `&lang="en"`을 붙여서 다른 언어 스크립트(자동 번역 스크립트 제외), `&join=false`를 붙여서 영상 시간대 별로 나뉘어진 자막을 받을 수 있습니다. 
+
+**응답 형태**
+```javascript
+response = {
+  title: "영상 제목",
+  description: "더보기 란에 써있는 정보",
+  caption: "영상 자막 스크립트(하나의 문자열로 합쳐서)"
+}
+```
+`&join=false`을 붙였을 때는 
+```
+response = {
+  title: "영상 제목",
+  description: "더보기 란에 써있는 정보",
+  subtitles: [
+    {
+      start: "해당자막 시작 지점(초),
+      dur: "해당 자막 지속 시간(초),
+      text: "자막 내용"
+    }, 
+    ...
+  ]
+```
+
 
 ### IRS(Information Retrieval System)
 현재는 GPT에 Domain Specific Knowledge를 제공하기 위해서 function call을 통해 API로 검색한 내용 중 앞 부분을 임의로 선택해서 제공하고 있습니다. 이는 GPT의 Context Window에 제한이 있어서 검색 결과의 모든 법 조문을 전달할 수 없기 때문입니다. 따라서 가장 관련있고 GPT가 응답하기 위해 필요한 정보만을 모아서 GPT에게 제공하기 위한 방법이 필요합니다. 이를 IRS(Information Retrieval System)이라 합니다. Neural Search, Semantic Search 등 다양하게 불리는 듯 합니다. Transformer가 사용하는 Attention Mechanism에서 영감을 받아 고안하였습니다. ~~이미 IRS를 구현한 다른 시스템에서 기본적으로 사용하는 개념인 듯 합니다~~ 
