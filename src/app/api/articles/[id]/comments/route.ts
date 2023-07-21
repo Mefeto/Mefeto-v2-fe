@@ -3,7 +3,7 @@ import { sql } from "@vercel/postgres";
 import { zx } from "zodix";
 import { z } from "zod";
 import { LoaderArgs } from "@remix-run/server-runtime";
-import { getArticleComments } from "@/lib/fn/article";
+import { getArticleComments } from "@/lib/utils/article";
 import { currentUser } from "@clerk/nextjs";
 
 export async function GET(req: NextRequest, { params }: LoaderArgs) {
