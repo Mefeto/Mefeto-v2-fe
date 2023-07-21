@@ -20,7 +20,11 @@ export default function CustomTextEditor({
     extensions: [
       StarterKit,
       Underline,
-      Link,
+      Link.configure({
+        HTMLAttributes: {
+          target: "_blank",
+        },
+      }),
       Superscript,
       SubScript,
       Highlight,
