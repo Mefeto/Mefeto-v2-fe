@@ -15,7 +15,9 @@ import CustomTextInputWithLabel from "@/component/custom-text-input-with-label";
 import { IconArticle, IconCircleCheck } from "@tabler/icons-react";
 import { useDisclosure } from "@mantine/hooks";
 import { useForm } from "@mantine/form";
-import { stepper_steps } from "@/lib/const/write-artice";
+import { stepper_steps } from "@/lib/const/write-article";
+import WriteArticlePreviewModal from "@/component/write-article-preview-modal";
+import { generateHtmlFromInput } from "@/lib/utils/write-article-html-generator";
 
 export interface InputForm {
   step1: string;
@@ -70,7 +72,11 @@ export default function WritePage() {
 
   return (
     <Container h="100%">
-      <form onSubmit={form.onSubmit((values) => console.log(values))}>
+      <form
+        onSubmit={form.onSubmit((values) =>
+          console.log(generateHtmlFromInput(values))
+        )}
+      >
         <Paper py={rem(80)}>
           <Stepper
             size="sm"
@@ -85,19 +91,17 @@ export default function WritePage() {
               <Text align="center" fz={rem(24)}>
                 작성해주셔서 감사합니다! 🥰
               </Text>
+
               <Text align="center" py={40}>
                 아래의 버튼을 눌러 게시될 아티클을 미리 확인해보세요!
               </Text>
-              <Modal
-                px={0}
+
+              <WriteArticlePreviewModal
                 opened={opened}
-                onClose={close}
-                title="Authentication"
-                centered
-                zIndex={500}
-              >
-                모달
-              </Modal>
+                close={close}
+                input={form.values}
+              />
+
               <Group position="center" onClick={open}>
                 <Button size="lg" leftIcon={<IconArticle />} variant="light">
                   아티클 미리보기
@@ -113,7 +117,7 @@ export default function WritePage() {
               <Button variant="default" onClick={prevStep}>
                 이전으로
               </Button>
-              <Button color={"gray.8"} onClick={nextStep}>
+              <Button color="gray.8" onClick={nextStep}>
                 다음으로
               </Button>
             </>

@@ -1,5 +1,5 @@
 "use client";
-import { getSNSInfo } from "@/lib/fn/sns";
+import { getSNSInfo } from "@/lib/utils/sns";
 import {
   ActionIcon,
   Avatar,
