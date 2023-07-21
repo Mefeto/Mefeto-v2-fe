@@ -193,8 +193,8 @@ response = {
   description: "더보기 란에 써있는 정보",
   subtitles: [
     {
-      start: "해당자막 시작 지점(초),
-      dur: "해당 자막 지속 시간(초),
+      start: "해당자막 시작 지점(초)",
+      dur: "해당 자막 지속 시간(초)",
       text: "자막 내용"
     }, 
     ...
