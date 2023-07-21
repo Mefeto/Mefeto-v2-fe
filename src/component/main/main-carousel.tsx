@@ -9,6 +9,7 @@ import {
   useMantineTheme,
   rem,
   Overlay,
+  Box,
 } from "@mantine/core";
 import { articleThumbnail } from "@/lib/const/article-thumbnail";
 import Link from "next/link";
@@ -32,7 +33,7 @@ export default function MainCarousel() {
   });
 
   return (
-    <>
+    <Box pt={60}>
       <Text size={28} weight={700} py={16}>
         최근 떠오르는 이슈
       </Text>
@@ -46,7 +47,7 @@ export default function MainCarousel() {
       >
         {slides}
       </Carousel>
-    </>
+    </Box>
   );
 }
 

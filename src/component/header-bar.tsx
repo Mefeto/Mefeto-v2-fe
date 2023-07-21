@@ -41,7 +41,7 @@ export default function HeaderBar({ links }: HeaderSearchProps) {
   });
 
   return (
-    <Header height={80} mb={40}>
+    <Header height={80}>
       <Container>
         <div className={classes.inner}>
           <Link href={"/"} style={{ textDecoration: "none", color: "black" }}>
@@ -61,7 +61,9 @@ export default function HeaderBar({ links }: HeaderSearchProps) {
                     radius="md"
                     fz="xs"
                     variant="outline"
+                    component={Link}
                     rightIcon={<IconPencilPlus size={20} />}
+                    href={"/write"}
                   >
                     새 글 작성하기
                   </Button>
