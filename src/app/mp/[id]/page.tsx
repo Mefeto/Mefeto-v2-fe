@@ -1,5 +1,5 @@
 "use client";
-import { getSNSInfo } from "@/lib/fn/sns";
+import { getSNSInfo } from "@/lib/utils/sns";
 import {
   ActionIcon,
   Avatar,
@@ -15,13 +15,7 @@ import {
 import { useViewportSize } from "@mantine/hooks";
 import { articleThumbnail } from "@/lib/const/article-thumbnail";
 import CongressmanInterestedArticlesCard from "@/component/congressman/congressman-interested-articles-card";
-import {
-  IconBrandFacebook,
-  IconBrandFacebookFilled,
-  IconBrandInstagram,
-  IconBrandTwitter,
-  IconBrandYoutube,
-} from "@tabler/icons-react";
+import { IconBrandFacebook, IconBrandTwitter } from "@tabler/icons-react";
 
 export default function Page({ params }: { params: { id: string } }) {
   const { height } = useViewportSize();

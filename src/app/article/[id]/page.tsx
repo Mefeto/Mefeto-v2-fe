@@ -1,7 +1,7 @@
 "use client";
 import { Container, Grid, Divider, Stack } from "@mantine/core";
 import { useViewportSize } from "@mantine/hooks";
-import { getArticle } from "@/lib/fn/article";
+import { getArticle } from "@/lib/utils/article";
 import { ArticleThumbnailContentType } from "@/lib/types/article-thumbnail-type";
 import ArticleComment from "@/component/article/article-comment";
 import ArticleRelatedPropositions from "@/component/article/article-related-propositions";

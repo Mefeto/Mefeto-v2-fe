@@ -2,7 +2,7 @@
 import { Badge, Drawer, NavLink, Stack, Text, Button } from "@mantine/core";
 import { IconChevronRight } from "@tabler/icons-react";
 import { useDisclosure } from "@mantine/hooks";
-import { getProposition } from "@/lib/fn/article";
+import { getProposition } from "@/lib/utils/article";
 import Link from "next/link";
 
 export default function ArticleRelatedPropositionLink({

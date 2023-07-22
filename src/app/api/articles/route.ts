@@ -1,7 +1,7 @@
 import { NextResponse, NextRequest } from "next/server";
 import { sql } from "@vercel/postgres";
 import { auth } from "@clerk/nextjs";
-import { getArticles } from "@/lib/fn/article";
+import { getArticles } from "@/lib/utils/article";
 import { z } from "zod";
 import { zx } from "zodix";
 

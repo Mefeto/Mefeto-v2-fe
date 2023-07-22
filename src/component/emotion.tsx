@@ -15,7 +15,7 @@ export default function RootStyleRegistry({
 
   return (
     <CacheProvider value={cache}>
-      <MantineProvider withNormalizeCSS emotionCache={cache}>
+      <MantineProvider withNormalizeCSS withGlobalStyles emotionCache={cache}>
         <HeaderBar
           links={[
             { link: "/", label: "토의 리스트" },
