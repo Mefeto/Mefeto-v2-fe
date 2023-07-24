@@ -1,29 +1,30 @@
 "use client";
 
+import { useState } from "react";
 import {
   Button,
   Container,
   Group,
-  Modal,
   Paper,
   rem,
   Stepper,
   Text,
 } from "@mantine/core";
-import { useState } from "react";
-import CustomTextInputWithLabel from "@/component/custom-text-input-with-label";
-import { IconArticle, IconCircleCheck } from "@tabler/icons-react";
-import { useDisclosure } from "@mantine/hooks";
 import { useForm } from "@mantine/form";
-import { stepper_steps } from "@/lib/const/write-article";
+import { useDisclosure } from "@mantine/hooks";
+import { IconArticle, IconCircleCheck } from "@tabler/icons-react";
+import CustomTextInputWithLabel from "@/component/custom-text-input-with-label";
 import WriteArticlePreviewModal from "@/component/write-article-preview-modal";
-import { generateHtmlFromInput } from "@/lib/utils/write-article-html-generator";
+import { stepper_steps } from "@/lib/const/write-article";
+import { generateHtmlFromInput } from "@/lib/utils/article";
+import { notifications } from "@mantine/notifications";
+import axios from "axios";
 
 export interface InputForm {
-  step1: string;
-  step2: string;
-  step3: string;
-  step4: string;
+  title: string;
+  problem: string;
+  cause: string;
+  solution: string;
 }
 
 export default function WritePage() {
@@ -40,10 +41,10 @@ export default function WritePage() {
   // form 상태 관리 훅
   const form = useForm<InputForm>({
     initialValues: {
-      step1: "",
-      step2: "",
-      step3: "",
-      step4: "",
+      title: "",
+      problem: "",
+      cause: "",
+      solution: "",
     },
   });
 
@@ -73,9 +74,32 @@ export default function WritePage() {
   return (
     <Container h="100%">
       <form
-        onSubmit={form.onSubmit((values) =>
-          console.log(generateHtmlFromInput(values))
-        )}
+        onSubmit={form.onSubmit(async (values) => {
+          try {
+            const content = await generateHtmlFromInput(values);
+            const res = await axios.post(`/api/articles`, {
+              title: values.title,
+              thumbnail_url:
+                "https://images.unsplash.com/photo-1689890075754-f36045eaadc7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxMHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
+              categories: ["test1", "test2", "test3"],
+              content: content,
+            });
+
+            if (res.status === 200) {
+              await notifications.show({
+                title: "아티클 작성완료!",
+                message: "아티클을 작성 완료했습니다!",
+              });
+            }
+          } catch (e) {
+            notifications.show({
+              title: "아티클 업로드 오류!",
+              message:
+                "아티클이 제대로 업로드 되지 않았습니다. 다시 한번 시도해주시기 바랍니다",
+              color: "red",
+            });
+          }
+        })}
       >
         <Paper py={rem(80)}>
           <Stepper

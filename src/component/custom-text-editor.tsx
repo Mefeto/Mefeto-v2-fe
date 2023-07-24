@@ -30,7 +30,7 @@ export default function CustomTextEditor({
       Highlight,
       TextAlign.configure({ types: ["heading", "paragraph"] }),
     ],
-    content: form.values[name as keyof InputForm],
+    content: form.values[name as keyof InputForm] || content,
     onUpdate({ editor }) {
       form.setFieldValue(name, editor?.getHTML());
     },

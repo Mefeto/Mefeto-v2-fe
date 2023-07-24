@@ -14,7 +14,7 @@ export default function ArticleIdPage({ params }: { params: { id: number } }) {
   const { height } = useViewportSize();
   const article = getArticle(Number(params.id)) as ArticleThumbnailContentType;
   return (
-    <Container size="lg" mih={height}>
+    <Container size="lg" mih={height} mb="3rem">
       <ArticleContentHeader article={article} />
       <Divider mb={16} />
       <Grid columns={14} w="100%">

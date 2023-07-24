@@ -1,10 +1,11 @@
 "use client";
 
 import { CacheProvider } from "@emotion/react";
-import { MantineProvider } from "@mantine/core";
+import { MantineProvider, Notification } from "@mantine/core";
 import FooterBar from "@/component/footer-bar";
 import HeaderBar from "@/component/header-bar";
 import { useGluedEmotionCache } from "@/lib/config/emotionNextjsGlue";
+import { Notifications } from "@mantine/notifications";
 
 export default function RootStyleRegistry({
   children,
@@ -22,6 +23,7 @@ export default function RootStyleRegistry({
             { link: "/search", label: "발의안 검색" },
           ]}
         />
+        <Notifications />
         {children}
         <FooterBar />
       </MantineProvider>

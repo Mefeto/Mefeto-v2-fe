@@ -1,6 +1,6 @@
 import { Container, Modal, TypographyStylesProvider } from "@mantine/core";
 import { InputForm } from "@/app/write/page";
-import { generateHtmlFromInput } from "@/lib/utils/write-article-html-generator";
+import { generateHtmlFromInput } from "@/lib/utils/article";
 
 export default function WriteArticlePreviewModal({
   opened,
