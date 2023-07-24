@@ -6,7 +6,7 @@ Table articles as A {
   id int [pk, increment]
   title varchar [not null]
   thumbnail_url varchar [not null]
-  short_description text [not null]
+  short_description text
   categories varchar[] [not null]
   content text [not null, note: 'HTML content']
   boundary int [default: 35]
