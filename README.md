@@ -2,6 +2,8 @@
 박주명 이 개발 중인 MEFETO에 필요한 AI 기능들 
 
 ## 변경사항!
+아래에 있는 모든 내용은 mefeto-ai-solutions파일에 격리되어 있는 react 버전에 해당하는 내용입니다. 지금의 nextjs 기반과 다릅니다. 이 Documentation은 Deprecated될 예정입니다. 
+
 Next JS 공부하고 Vercel에 대해 알아가다 보니 정말 좋은 것 같아요... mefeto-ai-solutions 폴더에 넣어 두었던 ReactJS 만으로 쓰인 아래의 모든 기능들을 NextJS 로 다시 바꾸어 쓰려고 합니다.  
 그리고 Vercel AI에 제가 한 것과 거의 동일한 SDK를 이미 제공하고 있더라구요... Vercel AI를 이용해 더 간결하고 기능적이게 다시 구현하고 있습니다.  
 
