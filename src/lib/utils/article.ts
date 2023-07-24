@@ -50,7 +50,7 @@ export const getProposition = (id: string) => {
 };
 
 // 제출된 의견 바탕 html 제조
-export const generateHtmlFromInput = async (
+export const generateHtmlFromInput = (
   steps: InputForm
 ) => `<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/></head><body><article><div class="page-body"><h1>${steps.title}</h1><h2>어떤 상황인가요?</h2>${steps.problem}<h2>어떤 점이 문제인가요?</h2>${steps.cause}<h2>어떻게 해결되면 좋을까요?</h2>${steps.solution}</div></article></body></html>
 `;

@@ -76,7 +76,7 @@ export default function WritePage() {
       <form
         onSubmit={form.onSubmit(async (values) => {
           try {
-            const content = await generateHtmlFromInput(values);
+            const content = generateHtmlFromInput(values);
             const res = await axios.post(`/api/articles`, {
               title: values.title,
               thumbnail_url:

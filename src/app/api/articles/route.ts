@@ -41,8 +41,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json(result.error, { status: 400 });
   }
 
-  // 1. short_description 이 not-null constraint를 위반했다는 에러가 뜹니다
-  // 2. categories array 부분에서 syntax error가 나는 것 같습니다.
+  // "{" syntax 에러가 발생합니다!
   // 혹시 확인하시거나 수정되었다면 이 주석을 지워주세요!
 
   const { title, thumbnail_url, categories, content } = result.data;
