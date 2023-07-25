@@ -4,6 +4,8 @@ import { ArticleThumbnailContentType } from "@/lib/types/article-thumbnail-type"
 import { clerkClient } from "@clerk/nextjs";
 import { sql } from "@vercel/postgres";
 import { InputForm } from "@/app/write/page";
+import axios from "axios/index";
+import { notifications } from "@mantine/notifications";
 
 export const getArticles = async (limit: number, offset: number) => {
   const res = await sql`

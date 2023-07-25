@@ -12,7 +12,12 @@ import {
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { useDisclosure } from "@mantine/hooks";
-import { IconArticle, IconCircleCheck } from "@tabler/icons-react";
+import {
+  IconArticle,
+  IconCheck,
+  IconCircleCheck,
+  IconX,
+} from "@tabler/icons-react";
 import CustomTextInputWithLabel from "@/component/custom-text-input-with-label";
 import WriteArticlePreviewModal from "@/component/write-article-preview-modal";
 import { stepper_steps } from "@/lib/const/write-article";
@@ -48,6 +53,9 @@ export default function WritePage() {
     },
   });
 
+  // form 제출 여부 확인
+  const [uploading, setUploading] = useState(false);
+
   // steppers 각 contents, use-form으로 관리, key 값 변화로 state 공유 문제 막기
   const steppers = stepper_steps.map((step, index) => {
     return (
@@ -75,8 +83,17 @@ export default function WritePage() {
     <Container h="100%">
       <form
         onSubmit={form.onSubmit(async (values) => {
+          await setUploading(true);
           try {
             const content = generateHtmlFromInput(values);
+            await notifications.show({
+              id: "upload-article",
+              loading: true,
+              title: "아티클 업로드중!",
+              message: "아티클을 업로드 하고 있습니다!",
+              autoClose: false,
+              withCloseButton: false,
+            });
             const res = await axios.post(`/api/articles`, {
               title: values.title,
               thumbnail_url:
@@ -86,18 +103,28 @@ export default function WritePage() {
             });
 
             if (res.status === 200) {
-              await notifications.show({
-                title: "아티클 작성완료!",
-                message: "아티클을 작성 완료했습니다!",
+              await notifications.update({
+                id: "upload-article",
+                title: "아티클 업로드 완료!",
+                message:
+                  "작성된 아티클 업로드가 완료됐습니다. 이제 이 창은 2초 후에 닫힙니다!",
+                autoClose: 2000,
+                color: "teal",
+                icon: <IconCheck size="1rem" />,
               });
+              await setUploading(false);
             }
           } catch (e) {
-            notifications.show({
+            notifications.update({
+              id: "upload-article",
               title: "아티클 업로드 오류!",
               message:
                 "아티클이 제대로 업로드 되지 않았습니다. 다시 한번 시도해주시기 바랍니다",
+              autoClose: 2000,
               color: "red",
+              icon: <IconX size="1rem" />,
             });
+            await setUploading(false);
           }
         })}
       >
@@ -146,7 +173,9 @@ export default function WritePage() {
               </Button>
             </>
           ) : (
-            <Button type="submit">의견 제출하기</Button>
+            <Button type="submit" disabled={uploading}>
+              의견 제출하기
+            </Button>
           )}
         </Group>
       </form>
