@@ -1,5 +1,7 @@
+import { InputForm } from "@/app/write/page";
+
 interface Step {
-  stepper_name: string;
+  stepper_name: keyof InputForm;
   stepper_label: string;
   stepper_description: string;
   stepper_color: string;
@@ -10,7 +12,7 @@ interface Step {
 
 export const stepper_steps: Step[] = [
   {
-    stepper_name: "step1",
+    stepper_name: "title",
     stepper_label: "제목 선정",
     stepper_description: "어떤 주제인가요?",
     stepper_color: "gray.8",
@@ -19,7 +21,7 @@ export const stepper_steps: Step[] = [
     section_type: "input",
   },
   {
-    stepper_name: "step2",
+    stepper_name: "problem",
     stepper_label: "상황 소개",
     stepper_description: "무엇을 소개하고 싶나요?",
     stepper_color: "gray.8",
@@ -28,7 +30,7 @@ export const stepper_steps: Step[] = [
     section_type: "editor",
   },
   {
-    stepper_name: "step3",
+    stepper_name: "cause",
     stepper_label: "원인 분석",
     stepper_description: "어떤 점이 문제인가요?",
     stepper_color: "gray.8",
@@ -37,7 +39,7 @@ export const stepper_steps: Step[] = [
     section_type: "editor",
   },
   {
-    stepper_name: "step4",
+    stepper_name: "solution",
     stepper_label: "해결 방안",
     stepper_description: "어떻게 되면 좋을까요?",
     stepper_color: "gray.8",

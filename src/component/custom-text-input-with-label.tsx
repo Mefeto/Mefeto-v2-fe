@@ -11,7 +11,6 @@ import React from "react";
 import { UseFormReturnType } from "@mantine/form";
 import { InputForm } from "@/app/write/page";
 import CustomTextEditor from "@/component/custom-text-editor";
-import { useRichTextEditorContext } from "@mantine/tiptap";
 export default function CustomTextInputWithLabel({
   sectionTitle,
   description,
@@ -25,7 +24,6 @@ export default function CustomTextInputWithLabel({
   name: string;
   form: UseFormReturnType<InputForm, (values: InputForm) => InputForm>;
 }) {
-  // const { editor } = useRichTextEditorContext();
   if (type === "input") {
     return (
       <Stack px={40}>

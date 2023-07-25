@@ -32,7 +32,7 @@ export async function POST(req: NextRequest) {
       categories: z.array(z.string().min(1).max(255)),
       content: z.string().min(1),
     })
-    .safeParse(req.json());
+    .safeParse(await req.json());
 
   if (!result.success) {
     return NextResponse.json(result.error, { status: 400 });
@@ -46,7 +46,7 @@ export async function POST(req: NextRequest) {
         boundary, content, author_id)
     VALUES
       (${title}, ${thumbnail_url},
-        {${categories.map((v) => `"${v}"`).join()}},
+        ${categories as unknown as string},
         ${35}, ${content}, ${userId})
     RETURNING id, title, thumbnail_url, categories, boundary, created_at
   `;
