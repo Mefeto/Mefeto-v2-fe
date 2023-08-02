@@ -5,6 +5,7 @@ import {
   Badge,
   createStyles,
   Group,
+  rem,
   Text,
   Tooltip,
 } from "@mantine/core";
@@ -20,11 +21,12 @@ import Image from "next/image";
 import { ArticleThumbnailContentType } from "@/lib/types/article-thumbnail-type";
 import { usePathname } from "next/navigation";
 import { notifications } from "@mantine/notifications";
+import { Article } from "@/lib/hooks/use-articles";
 
 export default function ArticleContentHeader({
   article,
 }: {
-  article: ArticleThumbnailContentType;
+  article: Article;
 }) {
   const { theme } = useStyles();
   const pathname = usePathname();
@@ -62,16 +64,20 @@ export default function ArticleContentHeader({
           marginBottom: 20,
         }}
       />
-      {article.categories.map((c) => (
-        <Text key={article.title} color="dimmed" size={18} weight={600}>
-          {c}
+      <Group>
+        <Text size={40} weight={700} py={16}>
+          {article?.title}
         </Text>
-      ))}
-      <Text size={40} weight={700} py={16}>
-        {article.title}
-      </Text>
+      </Group>
+      <Group spacing="xs" pb="md">
+        {article?.categories.map((c) => (
+          <Badge key={c} color="dimmed" size="sm" variant="dot">
+            {c}
+          </Badge>
+        ))}
+      </Group>
 
-      <Group pb={28}>
+      <Group pb={rem(28)} align="center">
         <Badge p={8} size="lg" color="orange">
           논의 진행중
         </Badge>

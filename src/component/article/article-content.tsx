@@ -1,11 +1,8 @@
 import { Paper, Text, TypographyStylesProvider } from "@mantine/core";
 import { ArticleThumbnailContentType } from "@/lib/types/article-thumbnail-type";
+import { Article } from "@/lib/hooks/use-articles";
 
-export default function ArticleContent({
-  article,
-}: {
-  article: ArticleThumbnailContentType;
-}) {
+export default function ArticleContent({ article }: { article: Article }) {
   return (
     <Paper
       radius="md"

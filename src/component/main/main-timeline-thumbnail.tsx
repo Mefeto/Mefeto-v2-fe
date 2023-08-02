@@ -13,19 +13,16 @@ import { IconBookmark, IconHeart, IconShare } from "@tabler/icons-react";
 import Image from "next/image";
 import { ArticleThumbnailContentType } from "@/lib/types/article-thumbnail-type";
 import Link from "next/link";
+import { Article } from "@/lib/hooks/use-articles";
 
-export default function MainTimelineCard({
-  article,
-}: {
-  article: ArticleThumbnailContentType;
-}) {
+export default function MainTimelineThumbnail({ info }: { info: Article }) {
   const { classes, theme } = useStyles();
   return (
     <Link
-      href={`/article/${article.id}`}
+      href={`/article/${info.id}`}
       style={{ textDecoration: "none", color: "black" }}
     >
-      <Card my={40} p={16} withBorder radius="md" className={classes.card}>
+      <Card my="xl" p={16} withBorder radius="md" className={classes.card}>
         <Card.Section py="md" inheritPadding withBorder>
           <Flex justify="space-between" gap="md">
             <Stack
@@ -36,7 +33,7 @@ export default function MainTimelineCard({
             >
               <Stack>
                 <Group>
-                  {article.categories.map((c) => (
+                  {info.categories.map((c) => (
                     <Text key={c} fz="sm" fw={500} color="dimmed">
                       {c}
                     </Text>
@@ -45,10 +42,10 @@ export default function MainTimelineCard({
 
                 <Stack>
                   <Text weight={600} size={24}>
-                    {article.title}
+                    {info.title}
                   </Text>
                   <Text size="sm" color="dimmed">
-                    {article.short_description}
+                    {info.title}
                   </Text>
                 </Stack>
               </Stack>
@@ -77,7 +74,7 @@ export default function MainTimelineCard({
               </Group>
             </Stack>
             <Image
-              src={article.thumbnail_url}
+              src={info.thumbnail_url}
               alt="image1"
               width={200}
               height={200}

@@ -38,7 +38,7 @@ export default function MainCarousel() {
         최근 떠오르는 이슈
       </Text>
       <Carousel
-        slideSize="48%"
+        slideSize="50%"
         breakpoints={[{ maxWidth: "sm", slideSize: "100%", slideGap: rem(2) }]}
         slideGap="md"
         align="start"
