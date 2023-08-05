@@ -24,6 +24,7 @@ import { stepper_steps } from "@/lib/const/write-article";
 import { generateHtmlFromInput } from "@/lib/utils/article";
 import { notifications } from "@mantine/notifications";
 import axios from "axios";
+import MefetoCopilot from "@/component/mefeto-copilot/mefeto-copilot";
 
 export interface InputForm {
   title: string;
@@ -65,6 +66,7 @@ export default function WritePage() {
         description={step.stepper_description}
         color={step.stepper_color}
       >
+        <MefetoCopilot stepIndex={index} form={form} />
         {active === index && (
           <CustomTextInputWithLabel
             key={step.stepper_label}
