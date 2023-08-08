@@ -10,6 +10,7 @@ import FooterBar from "@/component/footer-bar";
 import HeaderBar from "@/component/header-bar";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { useUser } from "@clerk/nextjs";
 
 export default function RootStyleRegistry({
   children,
@@ -18,6 +19,7 @@ export default function RootStyleRegistry({
 }) {
   const cache = useGluedEmotionCache();
   const [queryClient] = useState(() => new QueryClient());
+  const { user } = useUser();
 
   return (
     <CacheProvider value={cache}>
@@ -25,11 +27,15 @@ export default function RootStyleRegistry({
         <QueryClientProvider client={queryClient}>
           <ModalsProvider>
             <HeaderBar
-              links={[
-                { link: "/", label: "토의 리스트" },
-                { link: "/search", label: "발의안 검색" },
-                { link: "/my-articles", label: "내 발의안" },
-              ]}
+              links={
+                user
+                  ? [
+                      { link: "/", label: "토의 리스트" },
+                      { link: "/search", label: "발의안 검색" },
+                      { link: "/my-articles", label: "내 발의안" },
+                    ]
+                  : []
+              }
             />
             <Notifications />
             {children}
