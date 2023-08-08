@@ -25,6 +25,7 @@
     "@mantine/prism": "^6.0.13",
     "@mantine/tiptap": "^6.0.17",
     "@tabler/icons-react": "^2.27.0",
+    "@tanstack/react-query": "^4.32.1",
     "@tiptap/extension-highlight": "^2.0.4",
     "@tiptap/extension-image": "^2.0.4",
     "@tiptap/extension-link": "^2.0.4",
@@ -52,6 +53,7 @@
   },
   "devDependencies": {
     "@remix-run/server-runtime": "^1.18.1",
+    "@tanstack/react-query-devtools": "^4.32.1",
     "prettier": "^2.8.8"
   }
 }
