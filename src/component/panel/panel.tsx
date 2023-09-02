@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Container, Divider, Flex, Tabs } from "@mantine/core";
+import { Box, Divider, Flex, Tabs } from "@mantine/core";
 
 const Panel = ({ children }: React.PropsWithChildren) => {
   return (
