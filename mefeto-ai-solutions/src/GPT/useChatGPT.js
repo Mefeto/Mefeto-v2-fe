@@ -8,19 +8,28 @@ function useChatGPT(prompt) {
   ]);
 
   const getResponse = async function (message) {
-    updateChatLog((previousChatLog) => previousChatLog.concat(message));
-    const response = await completeChat(chatLog.concat(message));
-    updateChatLog((currentChatLog) => currentChatLog.concat(response.message));
+    let localChatLog = chatLog;
+    localChatLog.push(message);
+    updateChatLog(localChatLog);
+    const response = await completeChat(localChatLog);
+    localChatLog.push(response.message);
+    updateChatLog(localChatLog);
     if (response.finish_reason === "function_call") {
       const whichFunction = response.message.function_call.name;
       try {
-        getResponse({
-          role: "function",
-          name: whichFunction,
-          content: await functions[whichFunction](
-            JSON.parse(response.message.function_call.arguments).keyword
-          ),
+        const result = await functions[whichFunction](
+          await JSON.parse(response.message.function_call.arguments).input
+        ).then((result) => {
+          localChatLog.push({
+            role: "function",
+            name: whichFunction,
+            content: result,
+          });
+          updateChatLog(localChatLog);
         });
+        const response_function = await completeChat(localChatLog);
+        localChatLog.push(response_function.message);
+        updateChatLog(localChatLog);
       } catch (e) {
         console.error(e);
         getResponse({
