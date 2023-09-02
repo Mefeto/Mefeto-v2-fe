@@ -1,7 +1,7 @@
 "use client";
 
 import { PanelProvider, usePanels } from "@/lib/hooks/use-panel";
-import { Box, Divider, Flex, Tabs } from "@mantine/core";
+import { Box, Center, Divider, Flex, Tabs } from "@mantine/core";
 
 const Inner = () => {
   const panels = usePanels();
@@ -11,21 +11,10 @@ const Inner = () => {
   return (
     <>
       <Divider orientation="vertical" />
-      <Box miw={200}>
-        <Tabs orientation="vertical" placement="right" variant="pills">
-          <Tabs.List>
-            {Object.entries(panels).map(([key, { name }]) => (
-              <Tabs.Tab value={key} key={key}>
-                {name}
-              </Tabs.Tab>
-            ))}
-          </Tabs.List>
-          {Object.entries(panels).map(([key, { panel }]) => (
-            <Tabs.Panel value={key} key={key}>
-              {panel}
-            </Tabs.Panel>
-          ))}
-        </Tabs>
+      <Box miw={0}>
+        {Object.entries(panels).map(([key, { panel }]) => (
+          <Panel key={key}>{panel}</Panel>
+        ))}
       </Box>
     </>
   );
@@ -34,10 +23,17 @@ const Inner = () => {
 const Panel = ({ children }: React.PropsWithChildren) => {
   return (
     <PanelProvider>
-      <Flex>
-        <Box style={{ flex: 1 }}>{children}</Box>
-        <Inner />
-      </Flex>
+      <Center>
+        <Flex
+          style={{
+            width: "100%",
+            margin: "0 auto",
+          }}
+        >
+          <Box style={{ flex: 1 }}>{children}</Box>
+          <Inner />
+        </Flex>
+      </Center>
     </PanelProvider>
   );
 };

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import {
   Button,
   Container,
@@ -24,6 +24,8 @@ import { stepper_steps } from "@/lib/const/write-article";
 import { generateHtmlFromInput } from "@/lib/utils/article";
 import { notifications } from "@mantine/notifications";
 import axios from "axios";
+import { usePanelInjector } from "@/lib/hooks/use-panel";
+import ChatInterface from "@/component/chat/chat";
 
 export interface InputForm {
   title: string;
@@ -33,6 +35,19 @@ export interface InputForm {
 }
 
 export default function WritePage() {
+  const panel = useMemo(
+    () => (
+      <div style={{ marginLeft: 15, marginRight: 15 }}>
+        <ChatInterface />
+      </div>
+    ),
+    []
+  );
+
+  const [panelOpened, setPanelOpened] = useState(true);
+
+  usePanelInjector("asdf", panelOpened ? panel : null);
+
   // 모달 창 열림 여부
   const [opened, { open, close }] = useDisclosure(false);
 
@@ -161,6 +176,11 @@ export default function WritePage() {
             </Stepper.Completed>
           </Stepper>
         </Paper>
+        <div style={{ width: "100%", textAlign: "center", marginTop: -40 }}>
+          <Button onClick={() => setPanelOpened((prev) => !prev)}>
+            챗봇 {`${panelOpened ? "닫기" : "열기"}`}
+          </Button>
+        </div>
 
         <Group position="center" py={rem(40)}>
           {active !== 4 ? (
