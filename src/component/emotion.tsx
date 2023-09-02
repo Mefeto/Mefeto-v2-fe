@@ -33,6 +33,7 @@ export default function RootStyleRegistry({
                       { link: "/", label: "토의 리스트" },
                       { link: "/search", label: "발의안 검색" },
                       { link: "/my-articles", label: "내 발의안" },
+                      { link: "/graph", label: "그래프" },
                     ]
                   : []
               }
