@@ -1,8 +1,6 @@
 import * as d3 from "d3";
 import { DataHandlerReturnType } from "./data-handler";
-import { ElementRef, useLayoutEffect, useRef, useState } from "react";
-import { useDisclosure } from "@mantine/hooks";
-import { DrawerContent } from "./drawer-content";
+import { ElementRef, useLayoutEffect, useRef } from "react";
 import { ArrayElement } from "./data-type";
 
 const MARGIN = { top: 30, right: 30, bottom: 50, left: 50 };
@@ -11,16 +9,19 @@ type AxisBasicProps = {
   data: DataHandlerReturnType;
   width: number;
   height: number;
+  setSelectedNode?: (
+    node: ArrayElement<DataHandlerReturnType> | undefined
+  ) => void;
 };
 
-export const ScatterPlot = ({ data, width, height }: AxisBasicProps) => {
+export const ScatterPlot = ({
+  data,
+  width,
+  height,
+  setSelectedNode,
+}: AxisBasicProps) => {
   const boundsWidth = width - MARGIN.right - MARGIN.left;
   const boundsHeight = height - MARGIN.top - MARGIN.bottom;
-
-  const [opened, { open, close }] = useDisclosure(false);
-  const [clickedNode, setClickedNode] = useState<
-    ArrayElement<DataHandlerReturnType> | null | undefined
-  >(null);
 
   const svgRef = useRef<ElementRef<"svg">>(null);
 
@@ -116,8 +117,7 @@ export const ScatterPlot = ({ data, width, height }: AxisBasicProps) => {
       .attr("stroke-width", 1)
       .on("click", (_, d) => {
         console.log("Circle clicked", d);
-        setClickedNode(d);
-        open();
+        setSelectedNode?.(d);
       })
       .style("cursor", "pointer");
 
@@ -151,11 +151,6 @@ export const ScatterPlot = ({ data, width, height }: AxisBasicProps) => {
     <>
       <div style={{ position: "relative" }}>
         <svg width={width} height={height} ref={svgRef}></svg>
-        <DrawerContent
-          clickedNode={clickedNode}
-          opened={opened}
-          close={close}
-        />
       </div>
     </>
   );
