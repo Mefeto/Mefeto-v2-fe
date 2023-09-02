@@ -1,0 +1,80 @@
+.system {
+    border-radius: 10px;
+    background-color: rgb(176, 191, 235);
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2) ;
+    padding: 20px;
+    margin: 5px 0;
+    &:hover{
+        box-shadow: 0 0 3px;
+    }
+}
+.assistant {
+    border-radius: 10px;
+    background-color: rgb(201, 169, 215);
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2) ;
+    padding: 20px;
+    margin: 5px 0;
+    &:hover{
+        box-shadow: 0 0 3px;
+    }
+}
+.function {
+    border-radius: 10px;
+    background-color: rgb(145, 122, 154);
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2) ;
+    padding: 20px;
+    margin: 5px 0;
+    &:hover{
+        box-shadow: 0 0 3px;
+    }
+}
+.user {
+    border-radius: 10px;
+    background-color: rgb(179, 227, 188);
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2) ;
+    padding: 20px;
+    margin: 15px 0;
+    &:hover{
+        box-shadow: 0 0 3px;
+    }
+}
+
+.ChatInput {
+    display: flex;
+    flex-direction: row;
+    border-radius: 10px;
+    background-color: rgb(79, 96, 82);
+    color: white;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2) ;
+    padding: 20px;
+    margin: 10px 0;
+    line-height: 45px;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.userInput {
+    display: flex;
+    flex: auto;
+    border: none;
+    outline: none;
+    background-color: rgba(0, 0, 0, 0.2);
+    height: 50px;
+    border-radius: 10px 0 0 10px;
+    font-size: 17px;
+    color: white;
+    padding: 0 20px;
+    margin-left: 10px;
+}
+.submitChat {
+    width: 50px;
+    height: 50px;
+    border-radius: 0 10px 10px 0;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+    outline: none;
+    font-size: 12px;
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.9);
+    }
+}
