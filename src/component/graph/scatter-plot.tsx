@@ -27,11 +27,8 @@ export const ScatterPlot = ({
 
   useLayoutEffect(() => {
     // x축 영역과 y축 영역 계산
-    const xScale = d3.scaleLinear().domain([-0.2, 1]).range([0, boundsWidth]);
-    const yScale = d3
-      .scaleLinear()
-      .domain([-0.1, 1.2])
-      .range([boundsHeight, 0]);
+    const xScale = d3.scaleLinear().domain([-80, 80]).range([0, boundsWidth]);
+    const yScale = d3.scaleLinear().domain([-80, 80]).range([boundsHeight, 0]);
     const k = height / width;
 
     // xAxis , yAxis

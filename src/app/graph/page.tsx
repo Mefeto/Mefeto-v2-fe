@@ -7,7 +7,7 @@ import {
 import { ScatterPlot } from "@/component/graph/scatter-plot";
 import { useViewportSize } from "@mantine/hooks";
 import { useMemo, useState } from "react";
-import { dummy } from "@/component/graph/dummy";
+import dummy from "@/component/graph/timeframe_database.json";
 import { ArrayElement } from "@/component/graph/data-type";
 import { usePanelInjector } from "@/lib/hooks/use-panel";
 

@@ -1,4 +1,4 @@
-import { articles } from "./article";
+import articles from "./article_database.json";
 
 export type DataHandlerReturnType = {
   x: number;
