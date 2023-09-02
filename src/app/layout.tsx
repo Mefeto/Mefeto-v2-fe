@@ -1,4 +1,5 @@
 import RootStyleRegistry from "@/component/emotion";
+import Panel from "@/component/panel/panel";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Inter } from "next/font/google";
 
@@ -13,7 +14,9 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body className={inter.className} style={{ margin: 0, padding: 0 }}>
-          <RootStyleRegistry>{children}</RootStyleRegistry>
+          <Panel>
+            <RootStyleRegistry>{children}</RootStyleRegistry>
+          </Panel>
         </body>
       </html>
     </ClerkProvider>
