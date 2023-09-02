@@ -30,7 +30,7 @@ const usePanel = () => {
   return context;
 };
 
-export const usePanels = () => usePanelProvider().panels;
+export const usePanels = () => usePanel().panels;
 
 export const usePanelInjector = (name: string, panel: React.ReactNode) => {
   const { setPanels } = usePanel();

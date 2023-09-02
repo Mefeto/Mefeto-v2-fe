@@ -11,7 +11,7 @@ const Inner = () => {
   return (
     <>
       <Divider orientation="vertical" />
-      <Box>
+      <Box miw={200}>
         <Tabs orientation="vertical" placement="right" variant="pills">
           <Tabs.List>
             {Object.entries(panels).map(([key, { name }]) => (
