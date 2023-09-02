@@ -19,10 +19,8 @@ export default function ChatInterface() {
   };
 
   return (
-    <div style={{ width: "700px", margin: "0 auto" }}>
-      <h1 style={{ textAlign: "center" }}>
-        ChatGPT(with function call) Interface
-      </h1>
+    <div style={{ width: window.innerWidth * 0.28 - 30 }}>
+      <h1 style={{ textAlign: "center" }}>ChatGPT Interface</h1>
       {chatLog.map((log) => (
         <div className={log.role} key={log.content}>
           <h3 style={{ display: "inline" }}>{log.role} | </h3>
