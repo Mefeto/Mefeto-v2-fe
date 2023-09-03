@@ -2,6 +2,7 @@ import * as d3 from "d3";
 import { DataHandlerReturnType } from "./data-handler";
 import { ElementRef, useLayoutEffect, useRef } from "react";
 import { ArrayElement } from "./data-type";
+import cluster from "./cluster_database.json";
 
 const MARGIN = { top: 30, right: 30, bottom: 50, left: 50 };
 
@@ -84,6 +85,7 @@ export const ScatterPlot = ({
         .data(data)
         .attr("stroke-width", 0.2 / Math.sqrt(transform.k))
         .attr("r", 3 / Math.sqrt(transform.k));
+      gConvex.attr("transform", transform);
       gx.call(xAxis, zx);
       gy.call(yAxis, zy);
       gGrid.call(grid, zx, zy);
@@ -94,6 +96,26 @@ export const ScatterPlot = ({
 
     // grid
     const gGrid = svg.append("g");
+
+    // grix x and y coordinates
+    const gx = svg.append("g");
+    const gy = svg.append("g");
+
+    // convex
+    const gConvex = svg.append("g");
+    gConvex
+      .selectAll("path")
+      .data(cluster)
+      .join("path")
+      .attr("d", (d) => {
+        const convex = d3.polygonHull(d.convexHull as [number, number][]);
+        return convex
+          ? "M" + convex.map(([x, y]) => [xScale(x), yScale(y)]).join("L") + "Z"
+          : null;
+      })
+      .attr("stroke", (d) => colorScale2(String(d.clusterID)))
+      .attr("fill", (d) => colorScale2(String(d.clusterID)))
+      .attr("fill-opacity", 0.1);
 
     // dots
     const gCircles = svg
@@ -108,8 +130,8 @@ export const ScatterPlot = ({
       .attr("cx", (d) => xScale(d.x))
       .attr("cy", (d) => yScale(d.y))
       .attr("r", 2) // radius of the circle
-      .attr("stroke", (d) => colorScale(d.group_id))
-      .attr("fill", (d) => colorScale(d.group_id))
+      .attr("stroke", (d) => colorScale2(d.group_id))
+      .attr("fill", (d) => colorScale2(d.group_id))
       .attr("fill-opacity", 0.2)
       .attr("stroke-width", 1)
       .on("click", (_, d) => {
@@ -117,10 +139,6 @@ export const ScatterPlot = ({
         setSelectedNode?.(d);
       })
       .style("cursor", "pointer");
-
-    // grix x and y coordinates
-    const gx = svg.append("g");
-    const gy = svg.append("g");
 
     svg.call(zoom as any).call(zoom.transform as any, d3.zoomIdentity);
     return () => {
@@ -130,19 +148,9 @@ export const ScatterPlot = ({
 
   // cluster 끼리 색 다르도록
   const allGroups = data.map((v) => String(v.group_id));
-  const colorScale = d3
-    .scaleOrdinal<string>()
-    .domain(allGroups)
-    .range([
-      "#e0ac2b",
-      "#e85252",
-      "#6689c6",
-      "#9a6fb0",
-      "#a53253",
-      "#4caf50",
-      "#607d8b",
-      "#795548",
-    ]);
+  const colorScale = d3.scaleBand(allGroups, [0, 1000]);
+  const colorScale2 = (s: string) =>
+    d3.scaleSequential([0, 1], d3.interpolateRainbow)(colorScale(s) ?? 0);
 
   return (
     <>
