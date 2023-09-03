@@ -11,7 +11,7 @@ const Inner = () => {
   return (
     <>
       <Divider orientation="vertical" />
-      <Box miw={0}>
+      <Box miw={0} style={{ overflowY: "scroll" }} mah="100vh">
         {Object.entries(panels).map(([key, { panel }]) => (
           <Panel key={key}>{panel}</Panel>
         ))}
