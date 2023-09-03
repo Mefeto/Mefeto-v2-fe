@@ -13,6 +13,7 @@ import { ArrayElement } from "@/component/graph/data-type";
 import { usePanelInjector } from "@/lib/hooks/use-panel";
 import ChatInterface from "@/component/chat/chat";
 import { Button } from "@mantine/core";
+import clusters from "@/component/graph/cluster_database.json";
 
 export default function GraphPage() {
   const [sideBarWidth, setWidth] = useState(0);
@@ -23,8 +24,13 @@ export default function GraphPage() {
   const { height, width } = useViewportSize();
   const [selectedNode, setSelectedNode] =
     useState<ArrayElement<DataHandlerReturnType>>();
+  const [selectedClusterId, setSelectedClusterId] = useState<string>();
 
   const article = selectedNode ? getArticleWithId(selectedNode.id) : undefined;
+  const cluster =
+    !article && selectedClusterId
+      ? clusters.find((c) => c.clusterID === selectedClusterId)
+      : undefined;
   const panel = useMemo(
     () =>
       article ? (
@@ -35,8 +41,12 @@ export default function GraphPage() {
           <p style={{ fontSize: 14 }}>생성 날짜: {article.articleDate}</p>
           <p>{article.articleContent}</p>
         </div>
+      ) : cluster ? (
+        <div style={{ margin: 10 }}>
+          <p>{cluster.clusterSummary}</p>
+        </div>
       ) : undefined,
-    [article]
+    [article, cluster]
   );
   const chatBot = useMemo(
     () => (
@@ -46,7 +56,7 @@ export default function GraphPage() {
     ),
     []
   );
-  usePanelInjector("graph", selectedNode === undefined ? chatBot : panel);
+  usePanelInjector("graph", panel ?? chatBot);
 
   return (
     <>
@@ -66,6 +76,7 @@ export default function GraphPage() {
         width={width - sideBarWidth * 0.28}
         height={height - 16}
         setSelectedNode={setSelectedNode}
+        setSelectedClusterId={setSelectedClusterId}
       />
     </>
   );

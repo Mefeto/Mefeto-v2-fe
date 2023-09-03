@@ -13,6 +13,7 @@ type AxisBasicProps = {
   setSelectedNode?: (
     node: ArrayElement<DataHandlerReturnType> | undefined
   ) => void;
+  setSelectedClusterId?: (node: string | undefined) => void;
 };
 
 export const ScatterPlot = ({
@@ -20,6 +21,7 @@ export const ScatterPlot = ({
   width,
   height,
   setSelectedNode,
+  setSelectedClusterId,
 }: AxisBasicProps) => {
   const boundsWidth = width - MARGIN.right - MARGIN.left;
   const boundsHeight = height - MARGIN.top - MARGIN.bottom;
@@ -105,7 +107,13 @@ export const ScatterPlot = ({
     const gConvex = svg.append("g");
     gConvex
       .selectAll("path")
-      .data(cluster)
+      .data(
+        cluster.sort(
+          (a, b) =>
+            d3.polygonArea(a.convexHull as [number, number][]) -
+            d3.polygonArea(b.convexHull as [number, number][])
+        )
+      )
       .join("path")
       .attr("d", (d) => {
         const convex = d3.polygonHull(d.convexHull as [number, number][]);
@@ -115,7 +123,12 @@ export const ScatterPlot = ({
       })
       .attr("stroke", (d) => colorScale2(String(d.clusterID)))
       .attr("fill", (d) => colorScale2(String(d.clusterID)))
-      .attr("fill-opacity", 0.1);
+      .attr("fill-opacity", 0.1)
+      .on("click", (_, d) => {
+        setSelectedNode?.(undefined);
+        return setSelectedClusterId?.(d.clusterID);
+      })
+      .style("cursor", "pointer");
 
     // dots
     const gCircles = svg
@@ -134,10 +147,7 @@ export const ScatterPlot = ({
       .attr("fill", (d) => colorScale2(d.group_id))
       .attr("fill-opacity", 0.2)
       .attr("stroke-width", 1)
-      .on("click", (_, d) => {
-        console.log("Circle clicked", d);
-        setSelectedNode?.(d);
-      })
+      .on("click", (_, d) => setSelectedNode?.(d))
       .style("cursor", "pointer");
 
     svg.call(zoom as any).call(zoom.transform as any, d3.zoomIdentity);
