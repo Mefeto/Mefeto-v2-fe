@@ -31,6 +31,8 @@ export default function GraphPage() {
     !article && selectedClusterId
       ? clusters.find((c) => c.clusterID === selectedClusterId)
       : undefined;
+  const getArticleAmount = (clusterId: string) =>
+    data.filter((d) => d.group_id === clusterId).length;
   const panel = useMemo(
     () =>
       article ? (
@@ -43,10 +45,19 @@ export default function GraphPage() {
         </div>
       ) : cluster ? (
         <div style={{ margin: 10 }}>
+          <p>cluter {cluster.clusterID.slice(0, 8)}</p>
+          <p>
+            {getArticleAmount(cluster.clusterID)}개의 글이 포함되어 있어요. (
+            {[...clusters]
+              .map((c) => c.clusterID)
+              .sort((a, b) => getArticleAmount(b) - getArticleAmount(a))
+              .indexOf(cluster.clusterID) + 1}
+            /{clusters.length})
+          </p>
           <p>{cluster.clusterSummary}</p>
         </div>
       ) : undefined,
-    [article, cluster]
+    [article, cluster, data]
   );
   const chatBot = useMemo(
     () => (
