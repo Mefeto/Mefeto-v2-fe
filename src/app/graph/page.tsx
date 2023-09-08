@@ -45,14 +45,19 @@ export default function GraphPage() {
         </div>
       ) : cluster ? (
         <div style={{ margin: 10 }}>
-          <p>cluter {cluster.clusterID.slice(0, 8)}</p>
+          <p>cluster {cluster.clusterID.slice(0, 8)}</p>
           <p>
-            {getArticleAmount(cluster.clusterID)}개의 글이 포함되어 있어요. (
-            {[...clusters]
-              .map((c) => c.clusterID)
-              .sort((a, b) => getArticleAmount(b) - getArticleAmount(a))
-              .indexOf(cluster.clusterID) + 1}
-            /{clusters.length})
+            <div>
+              {getArticleAmount(cluster.clusterID)}개의 글이 포함되어 있어요.
+            </div>
+            <div>
+              클러스터의 크기 순위:
+              {[...clusters]
+                .map((c) => c.clusterID)
+                .sort((a, b) => getArticleAmount(b) - getArticleAmount(a))
+                .indexOf(cluster.clusterID) + 1}
+              /{clusters.length}
+            </div>
           </p>
           <p>{cluster.clusterSummary}</p>
         </div>
